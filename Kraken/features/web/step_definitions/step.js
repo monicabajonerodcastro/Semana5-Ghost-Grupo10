@@ -71,6 +71,29 @@ When('I write the url {string}', async function(url){
     return await element.setValue(url);
 })
 
+When('I click on the preview button', async function(){
+    let element = await this.driver.$('.gh-editor-preview-trigger');
+    return await element.click();
+})
+
+When('I click on the post settings button', async function(){
+    let element = await this.driver.$('button[title="Settings"]')
+    return await element.click();
+})
+
+When('I click on the facebook card', async function(){
+    let element = await this.driver.$$('.nav-list-item')[2];
+    return await element.click();
+});
+
+When('I fill the title with {string} and the description with {string}', async function(title, description){
+    let elementTitle = await this.driver.$('input[name="post-setting-og-title"]');
+    await elementTitle.setValue(title);
+
+    let elementDescription = await this.driver.$('textarea[name="post-setting-og-description"]');
+    return await elementDescription.setValue(description);
+})
+
 /**
  * "Then" steps
  */
@@ -84,6 +107,24 @@ Then('I see the preview of the bookmark', async function(){
     let element = await this.driver.$$('.koenig-card-click-overlay');
     expect(element.length > 0).to.equal(true);
 })
+
+Then('I see the preview of the post', async function(){
+    let element = await this.driver.$$('.gh-post-preview-container');
+    expect(element.length > 0).to.equal(true);
+})
+
+Then('I see the preview of the facebook card with the title {string} and the description {string}', async function(title, description){
+    let elementTitleList = await this.driver.$$('.gh-social-og-preview-title');
+    expect(elementTitleList.length > 0).to.equal(true);
+    let elementTitle = await elementTitleList[0].getText();
+    expect(elementTitle).to.include(title);
+
+    let elementDescriptionList = await this.driver.$$('.gh-social-og-preview-desc');
+    expect(elementDescriptionList.length > 0).to.equal(true);
+    let elementDescription = await elementDescriptionList[0].getText();
+    expect(elementDescription).to.include(description);
+})
+
 
 
 
