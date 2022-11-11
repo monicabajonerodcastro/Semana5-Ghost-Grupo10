@@ -1,0 +1,96 @@
+Feature: Crear Tag
+
+@user1 @web
+Scenario: As an admin user I want to create a tag with just the name
+    Given I navigate to page "http://localhost:2368/ghost/"
+    And I wait for 3 seconds
+	And an admin user is already created and enabled
+    When I enter email "n.gomezb2@uniandes.edu.co"
+    And I wait for 1 seconds
+    And I enter password "Pass123456"
+    And I wait for 1 seconds
+    And I click next
+    And I wait for 3 seconds
+    And I click on Tags
+    And I wait for 1 seconds
+	And I click on New tag
+	And I wait for 1 seconds
+    And I set "Nuevo tag1" as name
+    And I wait for 1 seconds
+	And I click on Save
+	And I wait for 1 seconds
+	Then I see the button as Saved
+
+@user2 @web
+Scenario: As an admin user I want to create a tag with the name, a specific slug and a description
+    Given I navigate to page "http://localhost:2368/ghost/"
+    And I wait for 3 seconds
+	And an admin user is already created and enabled
+    When I enter email "n.gomezb2@uniandes.edu.co"
+    And I wait for 1 seconds
+    And I enter password "Pass123456"
+    And I wait for 1 seconds
+    And I click next
+    And I wait for 3 seconds
+    And I click on Tags
+    And I wait for 1 seconds
+	And I click on New tag
+	And I wait for 1 seconds
+    And I set "Nuevo tag2" as name
+    And I wait for 1 seconds
+	And I set "" as slug
+    And I wait for 1 seconds
+	And I set "slugSample" as slug
+    And I wait for 1 seconds
+	And I set "This is the description" as description
+    And I wait for 1 seconds
+	And I click on Save
+	And I wait for 1 seconds
+	Then I see the button as Saved
+
+@user3 @web
+Scenario: As an admin user I want to create a tag with just the name and a facebook card
+    Given I navigate to page "http://localhost:2368/ghost/"
+    And I wait for 3 seconds
+	And an admin user is already created and enabled
+    When I enter email "n.gomezb2@uniandes.edu.co"
+    And I wait for 1 seconds
+    And I enter password "Pass123456"
+    And I wait for 1 seconds
+    And I click next
+    And I wait for 3 seconds
+    And I click on Tags
+    And I wait for 1 seconds
+	And I click on New tag
+	And I wait for 1 seconds
+    And I set "Nuevo tag3" as name
+    And I wait for 1 seconds
+	And I click on Expand button for facebook card
+	And I wait for 1 seconds
+	And I set "Mi titulo de tarjeta" as Facebook title
+    And I wait for 1 seconds
+	And I click on Save
+	And I wait for 1 seconds
+	Then I see the button as Saved
+
+@user4 @web
+Scenario: As an admin user I want to get back to the list of tags without saving the changes of the new tag
+    Given I navigate to page "http://localhost:2368/ghost/"
+    And I wait for 3 seconds
+	And an admin user is already created and enabled
+    When I enter email "n.gomezb2@uniandes.edu.co"
+    And I wait for 1 seconds
+    And I enter password "Pass123456"
+    And I wait for 1 seconds
+    And I click next
+    And I wait for 3 seconds
+    And I click on Tags
+    And I wait for 1 seconds
+	And I click on New tag
+	And I wait for 1 seconds
+    And I set "Nuevo tag4" as name
+    And I wait for 1 seconds
+	And I return to the previous page
+	And I wait for 1 seconds
+	And In the confirmation windows I click on Leave
+	Then I see the List of tags without the new tag added
