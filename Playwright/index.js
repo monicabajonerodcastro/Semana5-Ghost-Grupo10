@@ -8,8 +8,9 @@ const url = 'http://localhost:2368/ghost/#/signin';
   //Definir los navegadores en los que se quiere hacer la prueba
   for (const browserType of ['firefox']) {
 
-    let adminUser='n.gomezb2@uniandes.edu.co';
-    let password='Pass123456';
+    const prompt = require('prompt-sync')();
+    const adminUser = prompt('Ingrese el correo del usuario administrador');
+    const password = prompt('Ingrese la contraseña del usuario administrador');
     
     //Contenido de la prueba
     console.log(browserType+'-------------------------------------------')
@@ -319,7 +320,7 @@ const url = 'http://localhost:2368/ghost/#/signin';
     await page.screenshot({path: './Crear Post - escenario4/6 - Se observa el preview de la tarjeta de Facebook.png'})
     console.log('Crear Post - Finaliza escenario 4')    
 
-
+    console.log('Todas las pruebas finalizaron correctamente')   
     //Finalizar la prueba
     await browser.close();
   }
