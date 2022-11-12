@@ -9,9 +9,12 @@ const url = 'http://localhost:2368/ghost/#/signin';
   for (const browserType of ['firefox']) {
 
     const prompt = require('prompt-sync')();
-    const adminUser = prompt('Ingrese el correo del usuario administrador');
-    const password = prompt('Ingrese la contraseña del usuario administrador');
+    //const adminUser = prompt('Ingrese el correo del usuario administrador');
+    //const password = prompt('Ingrese la contraseña del usuario administrador');
     
+    adminUser='n.gomezb2@uniandes.edu.co'
+    password='Pass123456'
+
     //Contenido de la prueba
     console.log(browserType+'-------------------------------------------')
 
@@ -31,12 +34,12 @@ const url = 'http://localhost:2368/ghost/#/signin';
     console.log('--------------------------------------------------------------------------------------------------------------')
     console.log('Crear Tag - Escenario 1 - As an admin user I want to create a tag with just the name')
     console.log('--------------------------------------------------------------------------------------------------------------')
-    await page.type('input[id=ember6]', adminUser);
+    await page.fill('input.email.ember-text-field.gh-input.ember-view', adminUser);
     await new Promise(r => setTimeout(r, 1000));
-    await page.type('input[id=ember8]', password);
+    await page.fill('input.password.ember-text-field.gh-input.ember-view', password);
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: './Crear Tag - escenario1/1 - Ingreso de credenciales.png'})
-    await page.click('id=ember10');
+    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
     await new Promise(r => setTimeout(r, 3000));
     await page.locator('text=Tags').click();
     await new Promise(r => setTimeout(r, 1000));
@@ -63,12 +66,12 @@ const url = 'http://localhost:2368/ghost/#/signin';
     console.log('--------------------------------------------------------------------------------------------------------------')
     console.log('Crear Tag - Escenario 2 - As an admin user I want to create a tag with the name, a specific slug and a description')
     console.log('--------------------------------------------------------------------------------------------------------------')
-    await page.type('input[id=ember6]', adminUser);
+    await page.fill('input.email.ember-text-field.gh-input.ember-view', adminUser);
     await new Promise(r => setTimeout(r, 1000));
-    await page.type('input[id=ember8]', password);
+    await page.fill('input.password.ember-text-field.gh-input.ember-view', password);
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: './Crear Tag - escenario2/1 - Ingreso de credenciales.png'})
-    await page.click('id=ember10');
+    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
     await new Promise(r => setTimeout(r, 3000));
     await page.locator('text=Tags').click();
     await new Promise(r => setTimeout(r, 1000));
@@ -101,12 +104,12 @@ const url = 'http://localhost:2368/ghost/#/signin';
     console.log('--------------------------------------------------------------------------------------------------------------')
     console.log('Crear Tag - Escenario 3 - As an admin user I want to create a tag with just the name and a facebook card')
     console.log('--------------------------------------------------------------------------------------------------------------')
-    await page.type('input[id=ember6]', adminUser);
+    await page.fill('input.email.ember-text-field.gh-input.ember-view', adminUser);
     await new Promise(r => setTimeout(r, 1000));
-    await page.type('input[id=ember8]', password);
+    await page.fill('input.password.ember-text-field.gh-input.ember-view', password);
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: './Crear Tag - escenario3/1 - Ingreso de credenciales.png'})
-    await page.click('id=ember10');
+    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
     await new Promise(r => setTimeout(r, 3000));
     await page.locator('text=Tags').click();
     await new Promise(r => setTimeout(r, 1000));
@@ -139,12 +142,12 @@ const url = 'http://localhost:2368/ghost/#/signin';
     console.log('--------------------------------------------------------------------------------------------------------------')
     console.log('Crear Tag - Escenario 4 - As an admin user I want to get back to the list of tags without saving the changes of the new tag')
     console.log('--------------------------------------------------------------------------------------------------------------')
-    await page.type('input[id=ember6]', adminUser);
+    await page.fill('input.email.ember-text-field.gh-input.ember-view', adminUser);
     await new Promise(r => setTimeout(r, 1000));
-    await page.type('input[id=ember8]', password);
+    await page.fill('input.password.ember-text-field.gh-input.ember-view', password);
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: './Crear Tag - escenario4/1 - Ingreso de credenciales.png'})
-    await page.click('id=ember10');
+    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
     await new Promise(r => setTimeout(r, 3000));
     await page.locator('text=Tags').click();
     await new Promise(r => setTimeout(r, 1000));
@@ -174,12 +177,12 @@ const url = 'http://localhost:2368/ghost/#/signin';
     console.log('--------------------------------------------------------------------------------------------------------------')
     console.log('Crear Post - Escenario 1 - Como usario administrador, quiero crear un post')
     console.log('--------------------------------------------------------------------------------------------------------------')
-    await page.type('input[id=ember6]', adminUser);
+    await page.fill('input.email.ember-text-field.gh-input.ember-view', adminUser);
     await new Promise(r => setTimeout(r, 1000));
-    await page.type('input[id=ember8]', password);
+    await page.fill('input.password.ember-text-field.gh-input.ember-view', password);
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: './Crear Post - escenario1/1 - Ingreso de credenciales.png'})
-    await page.click('id=ember10');
+    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
     await new Promise(r => setTimeout(r, 3000));
     await page.locator('a.ember-view.gh-secondary-action.gh-nav-new-post').click();
     await new Promise(r => setTimeout(r, 1000));
@@ -212,12 +215,12 @@ const url = 'http://localhost:2368/ghost/#/signin';
     console.log('--------------------------------------------------------------------------------------------------------------')
     console.log('Crear Post - Escenario 2 - Como administrador, quiero crear un post con un bookmark')
     console.log('--------------------------------------------------------------------------------------------------------------')
-    await page.type('input[id=ember6]', adminUser);
+    await page.fill('input.email.ember-text-field.gh-input.ember-view', adminUser);
     await new Promise(r => setTimeout(r, 1000));
-    await page.type('input[id=ember8]', password);
+    await page.fill('input.password.ember-text-field.gh-input.ember-view', password);
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: './Crear Post - escenario2/1 - Ingreso de credenciales.png'})
-    await page.click('id=ember10');
+    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
     await new Promise(r => setTimeout(r, 3000));
     await page.locator('a.ember-view.gh-secondary-action.gh-nav-new-post').click();
     await new Promise(r => setTimeout(r, 1000));
@@ -259,12 +262,12 @@ const url = 'http://localhost:2368/ghost/#/signin';
     console.log('--------------------------------------------------------------------------------------------------------------')
     console.log('Crear Post - Escenario 3 - Como usario administrador, quiero visualizar la vista previa de mi post')
     console.log('--------------------------------------------------------------------------------------------------------------')
-    await page.type('input[id=ember6]', adminUser);
+    await page.fill('input.email.ember-text-field.gh-input.ember-view', adminUser);
     await new Promise(r => setTimeout(r, 1000));
-    await page.type('input[id=ember8]', password);
+    await page.fill('input.password.ember-text-field.gh-input.ember-view', password);
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: './Crear Post - escenario3/1 - Ingreso de credenciales.png'})
-    await page.click('id=ember10');
+    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
     await new Promise(r => setTimeout(r, 3000));
     await page.locator('a.ember-view.gh-secondary-action.gh-nav-new-post').click();
     await new Promise(r => setTimeout(r, 1000));
@@ -292,12 +295,12 @@ const url = 'http://localhost:2368/ghost/#/signin';
     console.log('--------------------------------------------------------------------------------------------------------------')
     console.log('Crear Post - Escenario 4 - Como usario administrador, quiero crear un post con una tarjeta de facebook')
     console.log('--------------------------------------------------------------------------------------------------------------')
-    await page.type('input[id=ember6]', adminUser);
+    await page.fill('input.email.ember-text-field.gh-input.ember-view', adminUser);
     await new Promise(r => setTimeout(r, 1000));
-    await page.type('input[id=ember8]', password);
+    await page.fill('input.password.ember-text-field.gh-input.ember-view', password);
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: './Crear Post - escenario4/1 - Ingreso de credenciales.png'})
-    await page.click('id=ember10');
+    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
     await new Promise(r => setTimeout(r, 3000));
     await page.locator('a.ember-view.gh-secondary-action.gh-nav-new-post').click();
     await new Promise(r => setTimeout(r, 1000));
