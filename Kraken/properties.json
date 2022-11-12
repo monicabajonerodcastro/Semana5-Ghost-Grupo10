@@ -1,0 +1,7 @@
+{
+  "LOGIN_URL": "http://localhost:2368/ghost/#/signin",
+  "USERNAME": "dc.tafur10@uniandes.edu.co",
+  "PASSWORD": "MISW202215",
+  "NEW_PASSWORD": "MISW202216",
+  "WRONG_PASSWORD": "WRONGPASSWORD"
+}
