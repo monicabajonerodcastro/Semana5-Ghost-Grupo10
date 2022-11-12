@@ -3,22 +3,22 @@ const expect = require('chai').expect;
 
 
 When('I enter email {kraken-string}', async function(email){
-    let element = await this.driver.$('#ember6');
+    let element = await this.driver.$('.email');
     return await element.setValue(email);
 })
 
 When('I enter password {kraken-string}', async function(password){
-    let element = await this.driver.$('#ember8');
+    let element = await this.driver.$('.password');
     return await element.setValue(password);
 })
 
 When('I click next', async function(){
-    let element = await this.driver.$('#ember10');
+    let element = await this.driver.$('.login');
     return await element.click();
 })
 
 When('I click on new post', async function(){
-    let element = await this.driver.$('#ember26');
+    let element = await this.driver.$('a[href="#/editor/post/"]');
     return await element.click();
 })
 
@@ -105,7 +105,7 @@ When('I click on New Tag button', async function(){
 })
 
 When ('I set the tag name as {string}', async function(tagName){
-    let element = await this.driver.$('#tag-name');
+    let element = await this.driver.$('input[name="name"]');
     return await element.setValue(tagName);
 })
 
@@ -115,13 +115,13 @@ When('I click on the save button', async function(){
 })
 
 When('I set the slug name as {string}', async function(tagSlug){
-    let element = await this.driver.$('#tag-slug');
+    let element = await this.driver.$('input[name="slug"]');
     await element.clearValue();
     return await element.setValue(tagSlug);
 })
 
 When('I set the description as {string}', async function(tagDescription){
-    let element = await this.driver.$('#tag-description');
+    let element = await this.driver.$('textarea[name="description"]');
     return await element.setValue(tagDescription);
 })
 
@@ -131,7 +131,7 @@ When('I select the facebook card section', async function(){
 });
 
 When('I set the title {string} in the facebook card', async function(title){
-    let element = await this.driver.$('#og-title');
+    let element = await this.driver.$('input[name="ogTitle"]');
     return await element.setValue(title);
 })
 
@@ -151,7 +151,8 @@ Then('I see the post confirmation', async function(){
 
 Then('I see the preview of the bookmark', async function(){
     let element = await this.driver.$$('.koenig-card-click-overlay');
-    expect(element.length > 0).to.equal(true);
+    let elementWaiting = await this.driver.$$('.__mobiledoc-card');
+    expect(element.length > 0 || elementWaiting.length > 0).to.equal(true);
 })
 
 Then('I see the preview of the post', async function(){
