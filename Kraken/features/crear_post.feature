@@ -1,12 +1,13 @@
 Feature: Crear post
+Feature: Crear post
 
 @user1 @web
 Scenario: Como usario administrador, quiero crear un post
     Given I navigate to page "http://localhost:2368/ghost/"
     And I wait for 3 seconds
-    When I enter email "m.bajonero@uniandes.edu.co"
+    When I enter email "<USERNAME>"
     And I wait for 1 seconds
-    And I enter password "Pass123456"
+    And I enter password "<PASSWORD>"
     And I wait for 1 seconds
     And I click next
     And I wait for 3 seconds
@@ -30,9 +31,9 @@ Scenario: Como usario administrador, quiero crear un post
 Scenario: Como administrador, quiero crear un post con un bookmark
     Given I navigate to page "http://localhost:2368/ghost/"
     And I wait for 3 seconds
-    When I enter email "m.bajonero@uniandes.edu.co"
+    When I enter email "<USERNAME>"
     And I wait for 1 seconds
-    And I enter password "Pass123456"
+    And I enter password "<PASSWORD>"
     And I wait for 1 seconds
     And I click next
     And I wait for 3 seconds
@@ -64,9 +65,9 @@ Scenario: Como administrador, quiero crear un post con un bookmark
 Scenario: Como usario administrador, quiero visualizar la vista previa de mi post
     Given I navigate to page "http://localhost:2368/ghost/"
     And I wait for 3 seconds
-    When I enter email "m.bajonero@uniandes.edu.co"
+    When I enter email "<USERNAME>"
     And I wait for 1 seconds
-    And I enter password "Pass123456"
+    And I enter password "<PASSWORD>"
     And I wait for 1 seconds
     And I click next
     And I wait for 3 seconds
@@ -86,9 +87,9 @@ Scenario: Como usario administrador, quiero visualizar la vista previa de mi pos
 Scenario: Como usario administrador, quiero crear un post con una tarjeta de facebook
     Given I navigate to page "http://localhost:2368/ghost/"
     And I wait for 3 seconds
-    When I enter email "m.bajonero@uniandes.edu.co"
+    When I enter email "<USERNAME>"
     And I wait for 1 seconds
-    And I enter password "Pass123456"
+    And I enter password "<PASSWORD>"
     And I wait for 1 seconds
     And I click next
     And I wait for 3 seconds
