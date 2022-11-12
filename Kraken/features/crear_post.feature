@@ -1,5 +1,4 @@
 Feature: Crear post
-Feature: Crear post
 
 @user1 @web
 Scenario: Como usario administrador, quiero crear un post
