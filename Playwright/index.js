@@ -9,10 +9,8 @@ const url = 'http://localhost:2368/ghost/#/signin';
   for (const browserType of ['firefox']) {
 
     const prompt = require('prompt-sync')();
-    // const adminUser = prompt('Ingrese el correo del usuario administrador: ');
-    // const password = prompt('Ingrese la contraseña del usuario administrador: ');
-    const adminUser = 'dc.tafur10@uniandes.edu.co';
-    const password = 'MISW202215';
+    const adminUser = prompt('Ingrese el correo del usuario administrador: ');
+    const password = prompt('Ingrese la contraseña del usuario administrador: ');
     
     //Contenido de la prueba
     console.log(browserType+'-------------------------------------------')
@@ -331,164 +329,164 @@ const url = 'http://localhost:2368/ghost/#/signin';
     // await new Promise(r => setTimeout(r, 3000));
     // console.log('Project loaded');
 
-    // console.log('--------------------------------------------------------------------------------------------------------------');
-    // console.log('Create Page - Scenario 1 - As an administrator user, I want to create a page');
-    // console.log('--------------------------------------------------------------------------------------------------------------');
-    // await page.type('input[id=identification]', adminUser);
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.type('input[id=password]', password);
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.screenshot({ path: './Create Page - Scenario 1/1 - Sign in.png' });
-    // await page.click('.login.gh-btn.gh-btn-login');
-    // await new Promise((r) => setTimeout(r, 3000));
-    // await page.locator('text=Pages').click();
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.locator('text=New page').click();
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.screenshot({ path: './Create Page - Scenario 1/2 - Click new page.png' });
-    // await page.fill('textarea.gh-editor-title.ember-text-area.gh-input.ember-view', 'My first page title');
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.fill('div.koenig-editor__editor.__mobiledoc-editor.__has-no-content', 'My first page body');
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.screenshot({ path: './Create Page - Scenario 1/3 - Fill page form.png' });
-    // await page.locator('text=Publish').click();
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.screenshot({ path: './Create Page - Scenario 1/4 - First confirmation.png' });
-    // await page.locator('text=Continue, final review →').click();
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.screenshot({ path: './Create Page - Scenario 1/5 - Second confirmation.png' });
-    // await page.locator('text=Publish page, right now').click();
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.screenshot({ path: './Create Page - Scenario 1/6 - Final confirmation.png' });
-    // console.log('Create page - Scenario 1 - Completed');
+    console.log('--------------------------------------------------------------------------------------------------------------');
+    console.log('Create Page - Scenario 1 - As an administrator user, I want to create a page');
+    console.log('--------------------------------------------------------------------------------------------------------------');
+    await page.type('input[id=identification]', adminUser);
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('input[id=password]', password);
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Create Page - Scenario 1/1 - Sign in.png' });
+    await page.click('.login.gh-btn.gh-btn-login');
+    await new Promise((r) => setTimeout(r, 3000));
+    await page.locator('text=Pages').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.locator('text=New page').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Create Page - Scenario 1/2 - Click new page.png' });
+    await page.fill('textarea.gh-editor-title.ember-text-area.gh-input.ember-view', 'My first page title');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.fill('div.koenig-editor__editor.__mobiledoc-editor.__has-no-content', 'My first page body');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Create Page - Scenario 1/3 - Fill page form.png' });
+    await page.locator('text=Publish').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Create Page - Scenario 1/4 - First confirmation.png' });
+    await page.locator('text=Continue, final review →').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Create Page - Scenario 1/5 - Second confirmation.png' });
+    await page.locator('text=Publish page, right now').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Create Page - Scenario 1/6 - Final confirmation.png' });
+    console.log('Create page - Scenario 1 - Completed');
 
-    // browser = await playwright[browserType].launch();
-    // context = await browser.newContext();
-    // page = await context.newPage();
+    browser = await playwright[browserType].launch();
+    context = await browser.newContext();
+    page = await context.newPage();
 
-    // //Abrir la URL a probar en la página y cargar el proyecto en una SPA
-    // await page.goto(url);
-    // await new Promise(r => setTimeout(r, 3000));
-    // console.log('Project loaded');
+    //Abrir la URL a probar en la página y cargar el proyecto en una SPA
+    await page.goto(url);
+    await new Promise(r => setTimeout(r, 3000));
+    console.log('Project loaded');
 
-    // console.log('--------------------------------------------------------------------------------------------------------------');
-    // console.log('Create Page - Scenario 2 - As an administrator user I want to create a page with a feature image');
-    // console.log('--------------------------------------------------------------------------------------------------------------');
-    // await page.type('input[id=identification]', adminUser);
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.type('input[id=password]', password);
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.screenshot({ path: './Create Page - Scenario 2/1 - Sign in.png' });
-    // await page.click('.login.gh-btn.gh-btn-login');
-    // await new Promise((r) => setTimeout(r, 3000));
-    // await page.locator('text=Pages').click();
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.locator('text=New page').click();
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.screenshot({ path: './Create Page - Scenario 2/2 - Click new page.png' });
-    // await page.locator('.gh-editor-feature-image-unsplash').click();
-    // await new Promise((r) => setTimeout(r, 5000));
-    // await page.screenshot({ path: './Create Page - Scenario 2/3 - Pick unsplash image.png' });
-    // await page.locator('text=Insert image').first().click();
-    // await new Promise((r) => setTimeout(r, 5000));
-    // await page.fill('textarea.gh-editor-title.ember-text-area.gh-input.ember-view', 'My first page title');
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.fill('div.koenig-editor__editor.__mobiledoc-editor.__has-no-content', 'My first page body');
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.screenshot({ path: './Create Page - Scenario 2/4 - Fill page form.png' });
-    // await page.locator('text=Publish').click();
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.screenshot({ path: './Create Page - Scenario 2/5 - First confirmation.png' });
-    // await page.locator('text=Continue, final review →').click();
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.screenshot({ path: './Create Page - Scenario 2/6 - Second confirmation.png' });
-    // await page.locator('text=Publish page, right now').click();
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.screenshot({ path: './Create Page - Scenario 2/7 - Final confirmation.png' });
-    // console.log('Create page - Scenario 2 - Completed');
+    console.log('--------------------------------------------------------------------------------------------------------------');
+    console.log('Create Page - Scenario 2 - As an administrator user I want to create a page with a feature image');
+    console.log('--------------------------------------------------------------------------------------------------------------');
+    await page.type('input[id=identification]', adminUser);
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('input[id=password]', password);
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Create Page - Scenario 2/1 - Sign in.png' });
+    await page.click('.login.gh-btn.gh-btn-login');
+    await new Promise((r) => setTimeout(r, 3000));
+    await page.locator('text=Pages').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.locator('text=New page').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Create Page - Scenario 2/2 - Click new page.png' });
+    await page.locator('.gh-editor-feature-image-unsplash').click();
+    await new Promise((r) => setTimeout(r, 5000));
+    await page.screenshot({ path: './Create Page - Scenario 2/3 - Pick unsplash image.png' });
+    await page.locator('text=Insert image').first().click();
+    await new Promise((r) => setTimeout(r, 5000));
+    await page.fill('textarea.gh-editor-title.ember-text-area.gh-input.ember-view', 'My first page title');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.fill('div.koenig-editor__editor.__mobiledoc-editor.__has-no-content', 'My first page body');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Create Page - Scenario 2/4 - Fill page form.png' });
+    await page.locator('text=Publish').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Create Page - Scenario 2/5 - First confirmation.png' });
+    await page.locator('text=Continue, final review →').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Create Page - Scenario 2/6 - Second confirmation.png' });
+    await page.locator('text=Publish page, right now').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Create Page - Scenario 2/7 - Final confirmation.png' });
+    console.log('Create page - Scenario 2 - Completed');
 
-    // browser = await playwright[browserType].launch();
-    // context = await browser.newContext();
-    // page = await context.newPage();
+    browser = await playwright[browserType].launch();
+    context = await browser.newContext();
+    page = await context.newPage();
 
-    // //Abrir la URL a probar en la página y cargar el proyecto en una SPA
-    // await page.goto(url);
-    // await new Promise(r => setTimeout(r, 3000));
-    // console.log('Project loaded');
+    //Abrir la URL a probar en la página y cargar el proyecto en una SPA
+    await page.goto(url);
+    await new Promise(r => setTimeout(r, 3000));
+    console.log('Project loaded');
 
-    // console.log('--------------------------------------------------------------------------------------------------------------');
-    // console.log('Update website - Scenario 1 - As an administrator user I want to update my website title');
-    // console.log('--------------------------------------------------------------------------------------------------------------');
-    // await page.type('input[id=identification]', adminUser);
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.type('input[id=password]', password);
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.screenshot({ path: './Update website - Scenario 1/1 - Sign in.png' });
-    // await page.click('.login.gh-btn.gh-btn-login');
-    // await new Promise((r) => setTimeout(r, 3000));
-    // await page.locator('a[href="#/settings/"]').click();
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.screenshot({ path: './Update website - Scenario 1/2 - Click general settings.png' });
-    // await page.locator('a[href="#/settings/general/"]').click();
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.locator('text=Expand').first().click();
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.locator('.ember-text-field.gh-input.ember-view').first().fill('My updated website title');
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.screenshot({ path: './Update website - Scenario 1/3 - Fill the title form.png' });
-    // await page.locator('text=Save').click();
-    // await new Promise((r) => setTimeout(r, 500));
-    // await page.screenshot({ path: './Update website - Scenario 1/4 - Update the website successfully.png' });
-    // console.log('Update website - Scenario 1 - Completed');
+    console.log('--------------------------------------------------------------------------------------------------------------');
+    console.log('Update website - Scenario 1 - As an administrator user I want to update my website title');
+    console.log('--------------------------------------------------------------------------------------------------------------');
+    await page.type('input[id=identification]', adminUser);
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('input[id=password]', password);
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update website - Scenario 1/1 - Sign in.png' });
+    await page.click('.login.gh-btn.gh-btn-login');
+    await new Promise((r) => setTimeout(r, 3000));
+    await page.locator('a[href="#/settings/"]').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update website - Scenario 1/2 - Click general settings.png' });
+    await page.locator('a[href="#/settings/general/"]').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.locator('text=Expand').first().click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.locator('.ember-text-field.gh-input.ember-view').first().fill('My updated website title');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update website - Scenario 1/3 - Fill the title form.png' });
+    await page.locator('text=Save').click();
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: './Update website - Scenario 1/4 - Update the website successfully.png' });
+    console.log('Update website - Scenario 1 - Completed');
 
-    // browser = await playwright[browserType].launch();
-    // context = await browser.newContext();
-    // page = await context.newPage();
+    browser = await playwright[browserType].launch();
+    context = await browser.newContext();
+    page = await context.newPage();
 
-    // //Abrir la URL a probar en la página y cargar el proyecto en una SPA
-    // await page.goto(url);
-    // await new Promise(r => setTimeout(r, 3000));
-    // console.log('Project loaded');
+    //Abrir la URL a probar en la página y cargar el proyecto en una SPA
+    await page.goto(url);
+    await new Promise(r => setTimeout(r, 3000));
+    console.log('Project loaded');
 
-    // console.log('--------------------------------------------------------------------------------------------------------------');
-    // console.log('Update profile - Scenario 1 - As an administrator user I want to update my profile');
-    // console.log('--------------------------------------------------------------------------------------------------------------');
-    // await page.type('input[id=identification]', adminUser);
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.type('input[id=password]', password);
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.screenshot({ path: './Update profile - Scenario 1/1 - Sign in.png' });
-    // await page.click('.login.gh-btn.gh-btn-login');
-    // await new Promise((r) => setTimeout(r, 3000));
-    // await page.locator('.ember-view.ember-basic-dropdown-trigger').click();
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.screenshot({ path: './Update profile - Scenario 1/2 - Click your profile.png' });
-    // await page.locator('text=Your profile').click();
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.type('input[id=user-location]', 'My updated location');
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.type('input[id=user-website]', 'http://myupdatedwebsite.com');
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.type('input[id=user-facebook]', 'https://www.facebook.com/myusername');
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.type('input[id=user-twitter]', 'https://www.twitter.com/myusername');
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.type('textarea[id=user-bio]', 'My updated bio');
-    // await new Promise((r) => setTimeout(r, 1000));
-    // await page.screenshot({ path: './Update profile - Scenario 1/3 - Fill the profile form.png' });
-    // await page.locator('text=Save').click();
-    // await new Promise((r) => setTimeout(r, 500));
-    // await page.screenshot({ path: './Update profile - Scenario 1/4 - Update the profile successfully.png' });
-    // console.log('Update profile - Scenario 1 - Completed');
+    console.log('--------------------------------------------------------------------------------------------------------------');
+    console.log('Update profile - Scenario 1 - As an administrator user I want to update my profile');
+    console.log('--------------------------------------------------------------------------------------------------------------');
+    await page.type('input[id=identification]', adminUser);
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('input[id=password]', password);
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update profile - Scenario 1/1 - Sign in.png' });
+    await page.click('.login.gh-btn.gh-btn-login');
+    await new Promise((r) => setTimeout(r, 3000));
+    await page.locator('.ember-view.ember-basic-dropdown-trigger').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update profile - Scenario 1/2 - Click your profile.png' });
+    await page.locator('text=Your profile').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('input[id=user-location]', 'My updated location');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('input[id=user-website]', 'http://myupdatedwebsite.com');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('input[id=user-facebook]', 'https://www.facebook.com/myusername');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('input[id=user-twitter]', 'https://www.twitter.com/myusername');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('textarea[id=user-bio]', 'My updated bio');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update profile - Scenario 1/3 - Fill the profile form.png' });
+    await page.locator('text=Save').click();
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: './Update profile - Scenario 1/4 - Update the profile successfully.png' });
+    console.log('Update profile - Scenario 1 - Completed');
 
-    // browser = await playwright[browserType].launch();
-    // context = await browser.newContext();
-    // page = await context.newPage();
+    browser = await playwright[browserType].launch();
+    context = await browser.newContext();
+    page = await context.newPage();
 
-    // //Abrir la URL a probar en la página y cargar el proyecto en una SPA
-    // await page.goto(url);
-    // await new Promise(r => setTimeout(r, 3000));
-    // console.log('Project loaded');
+    //Abrir la URL a probar en la página y cargar el proyecto en una SPA
+    await page.goto(url);
+    await new Promise(r => setTimeout(r, 3000));
+    console.log('Project loaded');
 
     console.log('--------------------------------------------------------------------------------------------------------------');
     console.log('Update profile - Scenario 2 - As an administrator user I want to ensure my password can not be changed if it is not correct');
@@ -507,9 +505,9 @@ const url = 'http://localhost:2368/ghost/#/signin';
     await new Promise((r) => setTimeout(r, 1000));
     await page.type('input[id=user-password-old]', 'FakePassword');
     await new Promise((r) => setTimeout(r, 1000));
-    await page.type('input[id=user-password-new]', 'NewPassword123$');
+    await page.type('input[id=user-password-new]', 'MISW202216');
     await new Promise((r) => setTimeout(r, 1000));
-    await page.type('input[id=user-new-password-verification]', 'NewPassword123$');
+    await page.type('input[id=user-new-password-verification]', 'MISW202216');
     await new Promise((r) => setTimeout(r, 1000));
     await page.screenshot({ path: './Update profile - Scenario 2/3 - Fill the password form.png' });
     await page.locator('text=Change Password').click();
@@ -517,12 +515,45 @@ const url = 'http://localhost:2368/ghost/#/signin';
     await page.screenshot({ path: './Update profile - Scenario 2/4 - Change the profile unsuccessfully.png' });
     console.log('Update profile - Scenario 2 - Completed');
 
+    browser = await playwright[browserType].launch();
+    context = await browser.newContext();
+    page = await context.newPage();
+
+    //Abrir la URL a probar en la página y cargar el proyecto en una SPA
+    await page.goto(url);
+    await new Promise(r => setTimeout(r, 3000));
+    console.log('Project loaded');
+
+    console.log('--------------------------------------------------------------------------------------------------------------');
+    console.log('Update profile - Scenario 3 - As an administrator user I want to change my password');
+    console.log('--------------------------------------------------------------------------------------------------------------');
+    await page.type('input[id=identification]', adminUser);
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('input[id=password]', password);
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update profile - Scenario 3/1 - Sign in.png' });
+    await page.click('.login.gh-btn.gh-btn-login');
+    await new Promise((r) => setTimeout(r, 3000));
+    await page.locator('.ember-view.ember-basic-dropdown-trigger').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update profile - Scenario 3/2 - Click your profile.png' });
+    await page.locator('text=Your profile').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('input[id=user-password-old]', password);
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('input[id=user-password-new]', 'MISW202215');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('input[id=user-new-password-verification]', 'MISW202215');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update profile - Scenario 3/3 - Fill the password form.png' });
+    await page.locator('text=Change Password').click();
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: './Update profile - Scenario 3/4 - Change the profile succesfully.png' });
+    console.log('Update profile - Scenario 3 - Completed');
+
     console.log('Todas las pruebas finalizaron correctamente')   
     //Finalizar la prueba
     await browser.close();
   }
   return;
 })();//Llamado propio de la función
-
-
-

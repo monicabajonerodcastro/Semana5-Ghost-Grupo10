@@ -38,7 +38,7 @@ Feature: Create page
     And I wait for 1 seconds
     When I click the login button
     And I wait for 3 seconds
-    When I click the page item menu
+    When I click the page menu item
     And I wait for 1 seconds
     When I click the new page button
     And I wait for 1 seconds
