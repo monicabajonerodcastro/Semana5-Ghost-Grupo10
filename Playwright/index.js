@@ -194,12 +194,12 @@ const url = 'http://localhost:2368/ghost/#/signin';
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: './Crear Post - escenario1/4 - Primera confirmación.png'})
     await page.locator('text=Continue, final review →').click();
-    await new Promise((r) => setTimeout(r, 1000));
-    await page.screenshot({ path: './Create Page - Scenario 1/5 - Second confirmation.png' });
-    await page.locator('text=Publish page, right now').click();
-    await new Promise((r) => setTimeout(r, 1000));
-    await page.screenshot({ path: './Create Page - Scenario 1/6 - Final confirmation.png' });
-    console.log('Create page - Scenario 1 - Completed');
+    await new Promise(r => setTimeout(r, 1000));
+    await page.screenshot({path: './Crear Post - escenario1/5 - Segunda confirmación.png'})
+    await page.locator('text=Publish post, right now').click();
+    await new Promise(r => setTimeout(r, 2000));
+    await page.screenshot({path: './Crear Post - escenario1/6 - Confirmación final del Post.png'})
+    console.log('Crear Post - Finaliza escenario 1')    
 
     browser = await playwright[browserType].launch();
     context = await browser.newContext();
@@ -240,12 +240,12 @@ const url = 'http://localhost:2368/ghost/#/signin';
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: './Crear Post - escenario2/6 - Primera confirmación.png'})
     await page.locator('text=Continue, final review →').click();
-    await new Promise((r) => setTimeout(r, 1000));
-    await page.screenshot({ path: './Create Page - Scenario 2/6 - Second confirmation.png' });
-    await page.locator('text=Publish page, right now').click();
-    await new Promise((r) => setTimeout(r, 1000));
-    await page.screenshot({ path: './Create Page - Scenario 2/7 - Final confirmation.png' });
-    console.log('Create page - Scenario 2 - Completed');
+    await new Promise(r => setTimeout(r, 1000));
+    await page.screenshot({path: './Crear Post - escenario2/7 - Segunda confirmación.png'})
+    await page.locator('text=Publish post, right now').click();
+    await new Promise(r => setTimeout(r, 2000));
+    await page.screenshot({path: './Crear Post - escenario2/8 - Confirmación final del Post.png'})
+    console.log('Crear Post - Finaliza escenario 2')  
 
     browser = await playwright[browserType].launch();
     context = await browser.newContext();
