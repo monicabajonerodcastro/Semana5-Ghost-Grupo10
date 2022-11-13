@@ -11,6 +11,7 @@ En la carpeta de cada herramienta, se especifican los requisitos e instrucciones
 3. Crear página
 4. Actualizar sitio web
 5. Actualizar perfil
+6. Crear Nuevo Miembro
 
 ### Escenarios
 1. Crear post
