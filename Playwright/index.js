@@ -9,11 +9,9 @@ const url = 'http://localhost:2368/ghost/#/signin';
   for (const browserType of ['firefox']) {
 
     const prompt = require('prompt-sync')();
-    //const adminUser = prompt('Ingrese el correo del usuario administrador');
-    //const password = prompt('Ingrese la contraseña del usuario administrador');
+    const adminUser = prompt('Ingrese el correo del usuario administrador');
+    const password = prompt('Ingrese la contraseña del usuario administrador');
     
-    adminUser='n.gomezb2@uniandes.edu.co'
-    password='Pass123456'
 
     //Contenido de la prueba
     console.log(browserType+'-------------------------------------------')
@@ -341,7 +339,7 @@ const url = 'http://localhost:2368/ghost/#/signin';
     await new Promise((r) => setTimeout(r, 1000));
     await page.screenshot({ path: './Create Page - Scenario 1/6 - Final confirmation.png' });
     console.log('Create page - Scenario 1 - Completed');
-    
+
     browser = await playwright[browserType].launch();
     context = await browser.newContext();
     page = await context.newPage();
@@ -386,7 +384,7 @@ const url = 'http://localhost:2368/ghost/#/signin';
     await new Promise((r) => setTimeout(r, 1000));
     await page.screenshot({ path: './Create Page - Scenario 2/7 - Final confirmation.png' });
     console.log('Create page - Scenario 2 - Completed');
-    
+
     browser = await playwright[browserType].launch();
     context = await browser.newContext();
     page = await context.newPage();
@@ -420,6 +418,151 @@ const url = 'http://localhost:2368/ghost/#/signin';
     await new Promise((r) => setTimeout(r, 500));
     await page.screenshot({ path: './Update website - Scenario 1/4 - Update the website successfully.png' });
     console.log('Update website - Scenario 1 - Completed');
+
+    browser = await playwright[browserType].launch();
+    context = await browser.newContext();
+    page = await context.newPage();
+
+    //Abrir la URL a probar en la página y cargar el proyecto en una SPA
+    await page.goto(url);
+    await new Promise(r => setTimeout(r, 3000));
+    console.log('Project loaded');
+
+    console.log('--------------------------------------------------------------------------------------------------------------');
+    console.log('Update website - Scenario 2 - As an administrator user I want to update my website publication language');
+    console.log('--------------------------------------------------------------------------------------------------------------');
+    await page.type('input[id=identification]', adminUser);
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('input[id=password]', password);
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update website - Scenario 2/1 - Sign in.png' });
+    await page.click('.login.gh-btn.gh-btn-login');
+    await new Promise((r) => setTimeout(r, 3000));
+    await page.locator('a[href="#/settings/"]').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update website - Scenario 2/2 - Click general settings.png' });
+    await page.locator('a[href="#/settings/general/"]').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.locator('text=Expand>>nth=2').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.locator('.ember-text-field.gh-input.ember-view').first().fill('es');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update website - Scenario 2/3 - Fill the publication language.png' });
+    await page.locator('text=Save').click();
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: './Update website - Scenario 2/4 - Update the website successfully.png' });
+    console.log('Update website - Scenario 2 - Completed');
+
+    browser = await playwright[browserType].launch();
+    context = await browser.newContext();
+    page = await context.newPage();
+
+    //Abrir la URL a probar en la página y cargar el proyecto en una SPA
+    await page.goto(url);
+    await new Promise(r => setTimeout(r, 3000));
+    console.log('Project loaded');
+
+    console.log('--------------------------------------------------------------------------------------------------------------');
+    console.log('Update website - Scenario 3 - As an administrator user I want to update my website meta data');
+    console.log('--------------------------------------------------------------------------------------------------------------');
+    await page.type('input[id=identification]', adminUser);
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('input[id=password]', password);
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update website - Scenario 3/1 - Sign in.png' });
+    await page.click('.login.gh-btn.gh-btn-login');
+    await new Promise((r) => setTimeout(r, 3000));
+    await page.locator('a[href="#/settings/"]').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update website - Scenario 3/2 - Click general settings.png' });
+    await page.locator('a[href="#/settings/general/"]').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.locator('text=Expand>>nth=3').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.locator('#metaTitle').fill('content management system');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update website - Scenario 3/3 - Fill the meta data.png' });
+    await page.locator('#metaDescription').fill('custom pages');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update website - Scenario 3/4 - Fill the meta description.png' });
+    await page.locator('text=Save').click();
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: './Update website - Scenario 3/5 - Update the website successfully.png' });
+    console.log('Update website - Scenario 3 - Completed');
+
+    browser = await playwright[browserType].launch();
+    context = await browser.newContext();
+    page = await context.newPage();
+
+    //Abrir la URL a probar en la página y cargar el proyecto en una SPA
+    await page.goto(url);
+    await new Promise(r => setTimeout(r, 3000));
+    console.log('Project loaded');
+
+    console.log('--------------------------------------------------------------------------------------------------------------');
+    console.log('Update website - Scenario 4 - As an administrator user I want to update my website twitter card');
+    console.log('--------------------------------------------------------------------------------------------------------------');
+    await page.type('input[id=identification]', adminUser);
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('input[id=password]', password);
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update website - Scenario 4/1 - Sign in.png' });
+    await page.click('.login.gh-btn.gh-btn-login');
+    await new Promise((r) => setTimeout(r, 3000));
+    await page.locator('a[href="#/settings/"]').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update website - Scenario 4/2 - Click general settings.png' });
+    await page.locator('a[href="#/settings/general/"]').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.locator('text=Expand>>nth=4').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.locator('#twitterTitle').fill('My website title updated');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update website - Scenario 4/3 - Fill the twitter title.png' });
+    await page.locator('#twitterDescription').fill('content');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update website - Scenario 4/4 - Fill the twitter description.png' });
+    await page.locator('text=Save').click();
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: './Update website - Scenario 4/5 - Update the website successfully.png' });
+    console.log('Update website - Scenario 4 - Completed');
+
+    browser = await playwright[browserType].launch();
+    context = await browser.newContext();
+    page = await context.newPage();
+
+    //Abrir la URL a probar en la página y cargar el proyecto en una SPA
+    await page.goto(url);
+    await new Promise(r => setTimeout(r, 3000));
+    console.log('Project loaded');
+
+    console.log('--------------------------------------------------------------------------------------------------------------');
+    console.log('Update website - Scenario 5 - As an administrator user I want to update my website social accounts');
+    console.log('--------------------------------------------------------------------------------------------------------------');
+    await page.type('input[id=identification]', adminUser);
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('input[id=password]', password);
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update website - Scenario 5/1 - Sign in.png' });
+    await page.click('.login.gh-btn.gh-btn-login');
+    await new Promise((r) => setTimeout(r, 3000));
+    await page.locator('a[href="#/settings/"]').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update website - Scenario 5/2 - Click general settings.png' });
+    await page.locator('a[href="#/settings/general/"]').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.locator('text=Expand>>nth=6').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.locator('.gh-input').first().fill('https://www.facebook.com/ghost');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update website - Scenario 5/3 - Fill the facebook page url.png' });
+    await page.locator('.gh-input>>nth=1').fill('https://www.twitter.com/ghost');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Update website - Scenario 5/4 - Fill the twitter profile url.png' });
+    await page.locator('text=Save').click();
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({ path: './Update website - Scenario 5/5 - Update the website successfully.png' });
+    console.log('Update website - Scenario 5 - Completed');
 
     browser = await playwright[browserType].launch();
     context = await browser.newContext();
@@ -532,6 +675,80 @@ const url = 'http://localhost:2368/ghost/#/signin';
     await new Promise((r) => setTimeout(r, 500));
     await page.screenshot({ path: './Update profile - Scenario 3/4 - Change the profile succesfully.png' });
     console.log('Update profile - Scenario 3 - Completed');
+
+    browser = await playwright[browserType].launch();
+    context = await browser.newContext();
+    page = await context.newPage();
+
+    //Abrir la URL a probar en la página y cargar el proyecto en una SPA
+    await page.goto(url);
+    await new Promise(r => setTimeout(r, 3000));
+    console.log('Project loaded');
+
+    console.log('--------------------------------------------------------------------------------------------------------------')
+    console.log('Create member - Scenario 1 - As an administrator user I want to create a member')
+    console.log('--------------------------------------------------------------------------------------------------------------')
+    await page.type('input[id=identification]', adminUser);
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('input[id=password]', password);
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Create Member - Scenario 1/1 - Sign in.png' });
+    await page.click('.login.gh-btn.gh-btn-login');
+    await new Promise((r) => setTimeout(r, 3000));
+    await page.locator('a[href="#/members/"]').first().click();
+    await new Promise(r => setTimeout(r, 1000));
+    await page.screenshot({path: './Create Member - Scenario 1/2 - Click Members.png'});
+    await page.locator('a[href="#/members/new/"]').first().click();
+    await new Promise(r => setTimeout(r, 1000));
+    await page.screenshot({path: './Create Member - Scenario 1/3 - Click new member.png'});
+    await page.type('input[id=member-name]', 'New member');
+    await new Promise(r => setTimeout(r, 1000));
+    await page.screenshot({path: './Create Member - Scenario 1/4 - Fill the member name.png'});
+    await page.type('input[id=member-email]', adminUser);
+    await new Promise(r => setTimeout(r, 1000));
+    await page.screenshot({path: './Create Member - Scenario 1/5 - Fill the member email.png'});
+    await page.locator('text=Save').click();
+    await new Promise(r => setTimeout(r, 1000));
+    await page.screenshot({path: './Create Member - Scenario 1/6 - Update the website successfully.png'})
+    console.log('Create member - Scenario 1 - Completed')
+
+    browser = await playwright[browserType].launch();
+    context = await browser.newContext();
+    page = await context.newPage();
+
+    //Abrir la URL a probar en la página y cargar el proyecto en una SPA
+    await page.goto(url);
+    await new Promise(r => setTimeout(r, 3000));
+    console.log('Project loaded');
+
+    console.log('--------------------------------------------------------------------------------------------------------------')
+    console.log('Create member - Scenario 2 - As an administrator user I want to avoid creating a member with an invalid email')
+    console.log('--------------------------------------------------------------------------------------------------------------')
+    await page.type('input[id=identification]', adminUser);
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('input[id=password]', password);
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({ path: './Create Member - Scenario 2/1 - Sign in.png' });
+    await page.click('.login.gh-btn.gh-btn-login');
+    await new Promise((r) => setTimeout(r, 3000));
+    await page.locator('a[href="#/members/"]').first().click();
+    await new Promise(r => setTimeout(r, 1000));
+    await page.screenshot({path: './Create Member - Scenario 2/2 - Click Members.png'});
+    await page.locator('a[href="#/members/new/"]').first().click();
+    await new Promise(r => setTimeout(r, 1000));
+    await page.screenshot({path: './Create Member - Scenario 2/3 - Click new member.png'});
+    await page.type('input[id=member-name]', 'New member');
+    await new Promise(r => setTimeout(r, 1000));
+    await page.screenshot({path: './Create Member - Scenario 2/4 - Fill the member name.png'});
+    await page.type('input[id=member-email]', 'invalid-email');
+    await new Promise(r => setTimeout(r, 1000));
+    await page.screenshot({path: './Create Member - Scenario 2/5 - Fill the member email.png'});
+    await page.locator('text=Save').click();
+    await new Promise(r => setTimeout(r, 1000));
+    await page.locator('text=Invalid Email.')
+    await new Promise(r => setTimeout(r, 1000));
+    await page.screenshot({path: './Create Member - Scenario 2/6 - Update the website successfully.png'})
+    console.log('Create member - Scenario 2 - Completed')
 
     console.log('Todas las pruebas finalizaron correctamente')   
     //Finalizar la prueba
