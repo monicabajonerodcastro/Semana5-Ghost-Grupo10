@@ -9,21 +9,24 @@ const url = 'http://localhost:2368/ghost/#/signin';
   for (const browserType of ['firefox']) {
 
     const prompt = require('prompt-sync')();
-    const adminUser = prompt('Ingrese el correo del usuario administrador: ');
-    const password = prompt('Ingrese la contraseña del usuario administrador: ');
+    //const adminUser = prompt('Ingrese el correo del usuario administrador');
+    //const password = prompt('Ingrese la contraseña del usuario administrador');
     
+    adminUser='n.gomezb2@uniandes.edu.co'
+    password='Pass123456'
+
     //Contenido de la prueba
     console.log(browserType+'-------------------------------------------')
 
     //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
-    browser = await playwright[browserType].launch();
-    context = await browser.newContext();
-    page = await context.newPage();
+    // browser = await playwright[browserType].launch();
+    // context = await browser.newContext();
+    // page = await context.newPage();
     
     //Abrir la URL a probar en la página y cargar el proyecto en una SPA
-    await page.goto(url);
-    await new Promise(r => setTimeout(r, 3000));
-    console.log('Project loaded')
+    // await page.goto(url);
+    // await new Promise(r => setTimeout(r, 3000));
+    // console.log('Project loaded')
 
     //Interactuar con la aplicación web
     //...
@@ -31,12 +34,12 @@ const url = 'http://localhost:2368/ghost/#/signin';
     // console.log('--------------------------------------------------------------------------------------------------------------')
     // console.log('Crear Tag - Escenario 1 - As an admin user I want to create a tag with just the name')
     // console.log('--------------------------------------------------------------------------------------------------------------')
-    // await page.type('input[id=ember6]', adminUser);
+    // await page.fill('input.email.ember-text-field.gh-input.ember-view', adminUser);
     // await new Promise(r => setTimeout(r, 1000));
-    // await page.type('input[id=ember8]', password);
+    // await page.fill('input.password.ember-text-field.gh-input.ember-view', password);
     // await new Promise(r => setTimeout(r, 1000));
     // await page.screenshot({path: './Crear Tag - escenario1/1 - Ingreso de credenciales.png'})
-    // await page.click('id=ember10');
+    // await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
     // await new Promise(r => setTimeout(r, 3000));
     // await page.locator('text=Tags').click();
     // await new Promise(r => setTimeout(r, 1000));
@@ -63,12 +66,12 @@ const url = 'http://localhost:2368/ghost/#/signin';
     // console.log('--------------------------------------------------------------------------------------------------------------')
     // console.log('Crear Tag - Escenario 2 - As an admin user I want to create a tag with the name, a specific slug and a description')
     // console.log('--------------------------------------------------------------------------------------------------------------')
-    // await page.type('input[id=ember6]', adminUser);
+    // await page.fill('input.email.ember-text-field.gh-input.ember-view', adminUser);
     // await new Promise(r => setTimeout(r, 1000));
-    // await page.type('input[id=ember8]', password);
+    // await page.fill('input.password.ember-text-field.gh-input.ember-view', password);
     // await new Promise(r => setTimeout(r, 1000));
     // await page.screenshot({path: './Crear Tag - escenario2/1 - Ingreso de credenciales.png'})
-    // await page.click('id=ember10');
+    // await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
     // await new Promise(r => setTimeout(r, 3000));
     // await page.locator('text=Tags').click();
     // await new Promise(r => setTimeout(r, 1000));
@@ -101,12 +104,12 @@ const url = 'http://localhost:2368/ghost/#/signin';
     // console.log('--------------------------------------------------------------------------------------------------------------')
     // console.log('Crear Tag - Escenario 3 - As an admin user I want to create a tag with just the name and a facebook card')
     // console.log('--------------------------------------------------------------------------------------------------------------')
-    // await page.type('input[id=ember6]', adminUser);
+    // await page.fill('input.email.ember-text-field.gh-input.ember-view', adminUser);
     // await new Promise(r => setTimeout(r, 1000));
-    // await page.type('input[id=ember8]', password);
+    // await page.fill('input.password.ember-text-field.gh-input.ember-view', password);
     // await new Promise(r => setTimeout(r, 1000));
     // await page.screenshot({path: './Crear Tag - escenario3/1 - Ingreso de credenciales.png'})
-    // await page.click('id=ember10');
+    // await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
     // await new Promise(r => setTimeout(r, 3000));
     // await page.locator('text=Tags').click();
     // await new Promise(r => setTimeout(r, 1000));
@@ -139,12 +142,12 @@ const url = 'http://localhost:2368/ghost/#/signin';
     // console.log('--------------------------------------------------------------------------------------------------------------')
     // console.log('Crear Tag - Escenario 4 - As an admin user I want to get back to the list of tags without saving the changes of the new tag')
     // console.log('--------------------------------------------------------------------------------------------------------------')
-    // await page.type('input[id=ember6]', adminUser);
+    // await page.fill('input.email.ember-text-field.gh-input.ember-view', adminUser);
     // await new Promise(r => setTimeout(r, 1000));
-    // await page.type('input[id=ember8]', password);
+    // await page.fill('input.password.ember-text-field.gh-input.ember-view', password);
     // await new Promise(r => setTimeout(r, 1000));
     // await page.screenshot({path: './Crear Tag - escenario4/1 - Ingreso de credenciales.png'})
-    // await page.click('id=ember10');
+    // await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
     // await new Promise(r => setTimeout(r, 3000));
     // await page.locator('text=Tags').click();
     // await new Promise(r => setTimeout(r, 1000));
@@ -174,12 +177,12 @@ const url = 'http://localhost:2368/ghost/#/signin';
     // console.log('--------------------------------------------------------------------------------------------------------------')
     // console.log('Crear Post - Escenario 1 - Como usario administrador, quiero crear un post')
     // console.log('--------------------------------------------------------------------------------------------------------------')
-    // await page.type('input[id=ember6]', adminUser);
+    // await page.fill('input.email.ember-text-field.gh-input.ember-view', adminUser);
     // await new Promise(r => setTimeout(r, 1000));
-    // await page.type('input[id=ember8]', password);
+    // await page.fill('input.password.ember-text-field.gh-input.ember-view', password);
     // await new Promise(r => setTimeout(r, 1000));
     // await page.screenshot({path: './Crear Post - escenario1/1 - Ingreso de credenciales.png'})
-    // await page.click('id=ember10');
+    // await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
     // await new Promise(r => setTimeout(r, 3000));
     // await page.locator('a.ember-view.gh-secondary-action.gh-nav-new-post').click();
     // await new Promise(r => setTimeout(r, 1000));
@@ -193,31 +196,31 @@ const url = 'http://localhost:2368/ghost/#/signin';
     // await new Promise(r => setTimeout(r, 1000));
     // await page.screenshot({path: './Crear Post - escenario1/4 - Primera confirmación.png'})
     // await page.locator('text=Continue, final review →').click();
-    // await new Promise(r => setTimeout(r, 1000));
-    // await page.screenshot({path: './Crear Post - escenario1/5 - Segunda confirmación.png'})
-    // await page.locator('text=Publish post, right now').click();
-    // await new Promise(r => setTimeout(r, 2000));
-    // await page.screenshot({path: './Crear Post - escenario1/6 - Confirmación final del Post.png'})
-    // console.log('Crear Post - Finaliza escenario 1')    
+    // await new Promise((r) => setTimeout(r, 1000));
+    // await page.screenshot({ path: './Create Page - Scenario 1/5 - Second confirmation.png' });
+    // await page.locator('text=Publish page, right now').click();
+    // await new Promise((r) => setTimeout(r, 1000));
+    // await page.screenshot({ path: './Create Page - Scenario 1/6 - Final confirmation.png' });
+    // console.log('Create page - Scenario 1 - Completed');
 
     // browser = await playwright[browserType].launch();
     // context = await browser.newContext();
     // page = await context.newPage();
-    
+
     // //Abrir la URL a probar en la página y cargar el proyecto en una SPA
     // await page.goto(url);
     // await new Promise(r => setTimeout(r, 3000));
-    // console.log('Project loaded')
+    // console.log('Project loaded');
 
     // console.log('--------------------------------------------------------------------------------------------------------------')
     // console.log('Crear Post - Escenario 2 - Como administrador, quiero crear un post con un bookmark')
     // console.log('--------------------------------------------------------------------------------------------------------------')
-    // await page.type('input[id=ember6]', adminUser);
+    // await page.fill('input.email.ember-text-field.gh-input.ember-view', adminUser);
     // await new Promise(r => setTimeout(r, 1000));
-    // await page.type('input[id=ember8]', password);
+    // await page.fill('input.password.ember-text-field.gh-input.ember-view', password);
     // await new Promise(r => setTimeout(r, 1000));
     // await page.screenshot({path: './Crear Post - escenario2/1 - Ingreso de credenciales.png'})
-    // await page.click('id=ember10');
+    // await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
     // await new Promise(r => setTimeout(r, 3000));
     // await page.locator('a.ember-view.gh-secondary-action.gh-nav-new-post').click();
     // await new Promise(r => setTimeout(r, 1000));
@@ -239,18 +242,17 @@ const url = 'http://localhost:2368/ghost/#/signin';
     // await new Promise(r => setTimeout(r, 1000));
     // await page.screenshot({path: './Crear Post - escenario2/6 - Primera confirmación.png'})
     // await page.locator('text=Continue, final review →').click();
-    // await new Promise(r => setTimeout(r, 1000));
-    // await page.screenshot({path: './Crear Post - escenario2/7 - Segunda confirmación.png'})
-    // await page.locator('text=Publish post, right now').click();
-    // await new Promise(r => setTimeout(r, 2000));
-    // await page.screenshot({path: './Crear Post - escenario2/8 - Confirmación final del Post.png'})
-    // console.log('Crear Post - Finaliza escenario 2')    
-
+    // await new Promise((r) => setTimeout(r, 1000));
+    // await page.screenshot({ path: './Create Page - Scenario 2/6 - Second confirmation.png' });
+    // await page.locator('text=Publish page, right now').click();
+    // await new Promise((r) => setTimeout(r, 1000));
+    // await page.screenshot({ path: './Create Page - Scenario 2/7 - Final confirmation.png' });
+    // console.log('Create page - Scenario 2 - Completed');
 
     // browser = await playwright[browserType].launch();
     // context = await browser.newContext();
     // page = await context.newPage();
-    
+
     // //Abrir la URL a probar en la página y cargar el proyecto en una SPA
     // await page.goto(url);
     // await new Promise(r => setTimeout(r, 3000));
@@ -259,12 +261,12 @@ const url = 'http://localhost:2368/ghost/#/signin';
     // console.log('--------------------------------------------------------------------------------------------------------------')
     // console.log('Crear Post - Escenario 3 - Como usario administrador, quiero visualizar la vista previa de mi post')
     // console.log('--------------------------------------------------------------------------------------------------------------')
-    // await page.type('input[id=ember6]', adminUser);
+    // await page.fill('input.email.ember-text-field.gh-input.ember-view', adminUser);
     // await new Promise(r => setTimeout(r, 1000));
-    // await page.type('input[id=ember8]', password);
+    // await page.fill('input.password.ember-text-field.gh-input.ember-view', password);
     // await new Promise(r => setTimeout(r, 1000));
     // await page.screenshot({path: './Crear Post - escenario3/1 - Ingreso de credenciales.png'})
-    // await page.click('id=ember10');
+    // await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
     // await new Promise(r => setTimeout(r, 3000));
     // await page.locator('a.ember-view.gh-secondary-action.gh-nav-new-post').click();
     // await new Promise(r => setTimeout(r, 1000));
@@ -279,47 +281,6 @@ const url = 'http://localhost:2368/ghost/#/signin';
     // await page.screenshot({path: './Crear Post - escenario3/4 - Se observa el preview del Post.png'})
     // console.log('Crear Post - Finaliza escenario 3')    
 
-
-    // browser = await playwright[browserType].launch();
-    // context = await browser.newContext();
-    // page = await context.newPage();
-    
-    // //Abrir la URL a probar en la página y cargar el proyecto en una SPA
-    // await page.goto(url);
-    // await new Promise(r => setTimeout(r, 3000));
-    // console.log('Project loaded')
-
-    // console.log('--------------------------------------------------------------------------------------------------------------')
-    // console.log('Crear Post - Escenario 4 - Como usario administrador, quiero crear un post con una tarjeta de facebook')
-    // console.log('--------------------------------------------------------------------------------------------------------------')
-    // await page.type('input[id=ember6]', adminUser);
-    // await new Promise(r => setTimeout(r, 1000));
-    // await page.type('input[id=ember8]', password);
-    // await new Promise(r => setTimeout(r, 1000));
-    // await page.screenshot({path: './Crear Post - escenario4/1 - Ingreso de credenciales.png'})
-    // await page.click('id=ember10');
-    // await new Promise(r => setTimeout(r, 3000));
-    // await page.locator('a.ember-view.gh-secondary-action.gh-nav-new-post').click();
-    // await new Promise(r => setTimeout(r, 1000));
-    // await page.screenshot({path: './Crear Post - escenario4/2 - Clic en nuevo Post.png'})
-    // await page.fill('textarea.gh-editor-title.ember-text-area.gh-input.ember-view', 'Titulo post facebook card');
-    // await new Promise(r => setTimeout(r, 1000));
-    // await page.fill('div.koenig-editor__editor.__mobiledoc-editor.__has-no-content', 'Cuerpo post facebook card"');
-    // await new Promise(r => setTimeout(r, 1000));
-    // await page.screenshot({path: './Crear Post - escenario4/3 - Ingreso datos del nuevo Post.png'})
-    // await page.locator('button.settings-menu-toggle.gh-btn.gh-btn-editor.gh-btn-icon.icon-only.gh-btn-action-icon').click();
-    // await new Promise(r => setTimeout(r, 1000));
-    // await page.screenshot({path: './Crear Post - escenario4/4 - Se abre Post settings.png'})
-    // await page.locator('button', { hasText: 'Facebook card' }).click();
-    // await new Promise(r => setTimeout(r, 1000));
-    // await page.screenshot({path: './Crear Post - escenario4/5 - Se abre la tarjeta de Facebook.png'})
-    // await page.type('input[id=og-title]', 'Título post en facebook');
-    // await new Promise(r => setTimeout(r, 1000));
-    // await page.type('textarea[id=og-description]', 'Descripcion post en facebook');
-    // await new Promise(r => setTimeout(r, 1000));
-    // await page.screenshot({path: './Crear Post - escenario4/6 - Se observa el preview de la tarjeta de Facebook.png'})
-    // console.log('Crear Post - Finaliza escenario 4')   
-    
     // browser = await playwright[browserType].launch();
     // context = await browser.newContext();
     // page = await context.newPage();
@@ -328,6 +289,27 @@ const url = 'http://localhost:2368/ghost/#/signin';
     // await page.goto(url);
     // await new Promise(r => setTimeout(r, 3000));
     // console.log('Project loaded');
+
+    // console.log('--------------------------------------------------------------------------------------------------------------')
+    // console.log('Crear Post - Escenario 4 - Como usario administrador, quiero crear un post con una tarjeta de facebook')
+    // console.log('--------------------------------------------------------------------------------------------------------------')
+    // await page.fill('input.email.ember-text-field.gh-input.ember-view', adminUser);
+    // await new Promise(r => setTimeout(r, 1000));
+    // await page.fill('input.password.ember-text-field.gh-input.ember-view', password);
+    // await new Promise(r => setTimeout(r, 1000));
+    // await page.screenshot({path: './Crear Post - escenario4/1 - Ingreso de credenciales.png'})
+    // await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
+    // await new Promise(r => setTimeout(r, 3000));
+    // console.log('Project loaded');
+
+    browser = await playwright[browserType].launch();
+    context = await browser.newContext();
+    page = await context.newPage();
+
+    //Abrir la URL a probar en la página y cargar el proyecto en una SPA
+    await page.goto(url);
+    await new Promise(r => setTimeout(r, 3000));
+    console.log('Project loaded');
 
     console.log('--------------------------------------------------------------------------------------------------------------');
     console.log('Create Page - Scenario 1 - As an administrator user, I want to create a page');
@@ -359,7 +341,7 @@ const url = 'http://localhost:2368/ghost/#/signin';
     await new Promise((r) => setTimeout(r, 1000));
     await page.screenshot({ path: './Create Page - Scenario 1/6 - Final confirmation.png' });
     console.log('Create page - Scenario 1 - Completed');
-
+    
     browser = await playwright[browserType].launch();
     context = await browser.newContext();
     page = await context.newPage();
@@ -404,7 +386,7 @@ const url = 'http://localhost:2368/ghost/#/signin';
     await new Promise((r) => setTimeout(r, 1000));
     await page.screenshot({ path: './Create Page - Scenario 2/7 - Final confirmation.png' });
     console.log('Create page - Scenario 2 - Completed');
-
+    
     browser = await playwright[browserType].launch();
     context = await browser.newContext();
     page = await context.newPage();
@@ -413,7 +395,7 @@ const url = 'http://localhost:2368/ghost/#/signin';
     await page.goto(url);
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded');
-
+    
     console.log('--------------------------------------------------------------------------------------------------------------');
     console.log('Update website - Scenario 1 - As an administrator user I want to update my website title');
     console.log('--------------------------------------------------------------------------------------------------------------');

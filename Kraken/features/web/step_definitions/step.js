@@ -1,4 +1,4 @@
-const { Given, When, Then } = require('@cucumber/cucumber');
+const { When, Then } = require('@cucumber/cucumber');
 const expect = require('chai').expect;
 
 // Moved to features\web\step_definitions\step.js file
@@ -7,19 +7,23 @@ const expect = require('chai').expect;
 //     return await element.setValue(email);
 // })
 
-// Moved to features\web\step_definitions\step.js file
-// When('I enter password {string}', async function(password){
-//     let element = await this.driver.$('#ember8');
+// When('I enter email {kraken-string}', async function(email){
+//     let element = await this.driver.$('.email');
+//     return await element.setValue(email);
+// })
+
+// When('I enter password {kraken-string}', async function(password){
+//     let element = await this.driver.$('.password');
 //     return await element.setValue(password);
 // })
 
 When('I click next', async function(){
-    let element = await this.driver.$('#ember10');
+    let element = await this.driver.$('.login');
     return await element.click();
 })
 
 When('I click on new post', async function(){
-    let element = await this.driver.$('#ember26');
+    let element = await this.driver.$('a[href="#/editor/post/"]');
     return await element.click();
 })
 
@@ -95,6 +99,52 @@ When('I fill the title with {string} and the description with {string}', async f
     return await elementDescription.setValue(description);
 })
 
+When ('I click on Tags section', async function(){
+    let element = await this.driver.$('a[href="#/tags/"]');
+    return await element.click();
+});
+
+When('I click on New Tag button', async function(){
+    let element = await this.driver.$('a[href="#/tags/new/"]')
+    return await element.click();
+})
+
+When ('I set the tag name as {string}', async function(tagName){
+    let element = await this.driver.$('input[name="name"]');
+    return await element.setValue(tagName);
+})
+
+When('I click on the save button', async function(){
+    let element = await this.driver.$('.mb15 > .gh-canvas-header > header > section > button');
+    return await element.click();
+})
+
+When('I set the slug name as {string}', async function(tagSlug){
+    let element = await this.driver.$('input[name="slug"]');
+    await element.clearValue();
+    return await element.setValue(tagSlug);
+})
+
+When('I set the description as {string}', async function(tagDescription){
+    let element = await this.driver.$('textarea[name="description"]');
+    return await element.setValue(tagDescription);
+})
+
+When('I select the facebook card section', async function(){
+    let element = await this.driver.$$('.gh-btn-expand')[2];
+    return await element.click();
+});
+
+When('I set the title {string} in the facebook card', async function(title){
+    let element = await this.driver.$('input[name="ogTitle"]');
+    return await element.setValue(title);
+})
+
+When('I click on the leave button', async function(){
+    let element = await this.driver.$('.gh-btn-red');
+    return await element.click();
+})
+
 /**
  * "Then" steps
  */
@@ -106,7 +156,8 @@ Then('I see the post confirmation', async function(){
 
 Then('I see the preview of the bookmark', async function(){
     let element = await this.driver.$$('.koenig-card-click-overlay');
-    expect(element.length > 0).to.equal(true);
+    let elementWaiting = await this.driver.$$('.__mobiledoc-card');
+    expect(element.length > 0 || elementWaiting.length > 0).to.equal(true);
 })
 
 Then('I see the preview of the post', async function(){
@@ -124,6 +175,27 @@ Then('I see the preview of the facebook card with the title {string} and the des
     expect(elementDescriptionList.length > 0).to.equal(true);
     let elementDescription = await elementDescriptionList[0].getText();
     expect(elementDescription).to.include(description);
+})
+
+Then('I expect to find the saved button', async function(){
+    let element = await this.driver.$('.mb15 > .gh-canvas-header > header > section > button');
+    expect(await element.getText()).to.include("Saved");
+})
+
+Then('I expect to see the facebook card preview with title {string}', async function(title){
+    let elements = await this.driver.$$('.gh-og-container');
+    expect(elements.length > 0).to.equal(true);
+
+    let elementTitle = await this.driver.$('.gh-social-og-preview-title');
+    expect(await elementTitle.getText()).to.contain(title);
+})
+
+Then('I expect to find the title Tags of the previous section', async function(){
+    let elements = await this.driver.$$('.gh-canvas-title');
+    expect(elements.length > 0).to.equal(true);
+
+    let text = await elements[0].getText();
+    expect(text).to.include("Tags");
 })
 
 
