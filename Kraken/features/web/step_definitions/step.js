@@ -1,22 +1,6 @@
 const { When, Then } = require('@cucumber/cucumber');
 const expect = require('chai').expect;
 
-// Moved to features\web\step_definitions\step.js file
-// When('I enter email {string}', async function(email){
-//     let element = await this.driver.$('#ember6');
-//     return await element.setValue(email);
-// })
-
-// When('I enter email {kraken-string}', async function(email){
-//     let element = await this.driver.$('.email');
-//     return await element.setValue(email);
-// })
-
-// When('I enter password {kraken-string}', async function(password){
-//     let element = await this.driver.$('.password');
-//     return await element.setValue(password);
-// })
-
 When('I click next', async function(){
     let element = await this.driver.$('.login');
     return await element.click();
