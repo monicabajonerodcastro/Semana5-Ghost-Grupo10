@@ -2,8 +2,8 @@
 En la carpeta de cada herramienta, se especifican los requisitos e instrucciones de ejecución de las pruebas.
 
 ### Herramientas
-- Kraken
-- Playwright
+- Kraken (GHOST 5.22.8)
+- Playwright (GHOST 5.19.0)
 
 ### Funcionalidades
 1. Crear Post

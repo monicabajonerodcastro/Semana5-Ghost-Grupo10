@@ -4,8 +4,8 @@ Para más información acerca de la herramienta, ingrese [aquí](https://playwri
 ## Prerequisistos:
 
 - Descargar el repositorio
-- Tener instalado Ghost
-- Ghost está en ejecución y se despliega en http://localhost:2368/
+- Tener instalado Ghost 5.19.0
+- Ghost 5.19.0 está en ejecución y se despliega en http://localhost:2368/
 - Tener un usuario administrador creado y activo
 - Versión de Node.js 14.20.x instalada en su computadora y dependencia Playwright
 - Versión del manejador de paquetes npm 6.14.xx instalada en su computadora.
@@ -18,7 +18,7 @@ Para más información acerca de la herramienta, ingrese [aquí](https://playwri
 ```bash
 npm install playwright
 ```
-3. Asegurese que Ghost está en ejecución y se despliega en http://localhost:2368/
+3. Asegurese que Ghost 5.19.0 está en ejecución y se despliega en http://localhost:2368/
 4. Corra el siguiente comando en consola
 ```bash
 node index.js

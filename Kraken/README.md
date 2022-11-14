@@ -8,10 +8,10 @@ Para más información acerca de la herramienta, ingrese [aquí](https://thesoft
 | NPM              | 6.13.14          |
 | Node             | 12.16.1          |
 | Android Studio   | Dolphin 2021.3.1 |
-| Ghost            | 1.23.1           |
+| Ghost            | 5.22.8           |
 
 - Asegurese de tener instalado Ghost
-- Ghost debe estar iniciado y corriendo en http://localhost:2368/ghost
+- Ghost 5.22.8 debe estar iniciado y corriendo en http://localhost:2368/ghost
 - Tener un usuario creado en su ambiente local de Ghost
 
 
