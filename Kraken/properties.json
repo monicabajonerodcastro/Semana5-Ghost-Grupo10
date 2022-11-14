@@ -1,7 +1,7 @@
 {
   "USERNAME": "Ingrese aquí su usuario de Ghost",
   "PASSWORD": "Ingrese aquí su contraseña de Ghost",  
-  "LOGIN_URL": "http://localhost:2368/ghost/#/signin",
+  "LOGIN_URL": "http://localhost:2369/ghost/#/signin",
   "NEW_PASSWORD": "MISW202215",
   "WRONG_PASSWORD": "WRONGPASSWORD"
 }

@@ -2,7 +2,7 @@ Feature: Crear post
 
 @user1 @web
 Scenario: Como usario administrador, quiero crear un post
-    Given I navigate to page "http://localhost:2368/ghost/"
+    Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"
     And I wait for 1 seconds
@@ -28,7 +28,7 @@ Scenario: Como usario administrador, quiero crear un post
 
 @user2 @web
 Scenario: Como administrador, quiero crear un post con un bookmark
-    Given I navigate to page "http://localhost:2368/ghost/"
+    Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"
     And I wait for 1 seconds
@@ -62,7 +62,7 @@ Scenario: Como administrador, quiero crear un post con un bookmark
 
 @user3 @web
 Scenario: Como usario administrador, quiero visualizar la vista previa de mi post
-    Given I navigate to page "http://localhost:2368/ghost/"
+    Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"
     And I wait for 1 seconds
@@ -84,7 +84,7 @@ Scenario: Como usario administrador, quiero visualizar la vista previa de mi pos
 
 @user4 @web
 Scenario: Como usario administrador, quiero crear un post con una tarjeta de facebook
-    Given I navigate to page "http://localhost:2368/ghost/"
+    Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"
     And I wait for 1 seconds

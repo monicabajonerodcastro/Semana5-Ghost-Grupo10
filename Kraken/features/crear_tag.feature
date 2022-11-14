@@ -2,7 +2,7 @@ Feature: Crear tag
 
 @user1 @web
 Scenario: Como usario administrador, quiero crear un tag solo con el nombre
-    Given I navigate to page "http://localhost:2368/ghost/"
+    Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"
     And I wait for 1 seconds
@@ -22,7 +22,7 @@ Scenario: Como usario administrador, quiero crear un tag solo con el nombre
 
 @user2 @web
 Scenario: Como usario administrador, quiero crear un tag especificando slug y descripción
-    Given I navigate to page "http://localhost:2368/ghost/"
+    Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"
     And I wait for 1 seconds
@@ -46,7 +46,7 @@ Scenario: Como usario administrador, quiero crear un tag especificando slug y de
 
 @user3 @web
 Scenario: Como usario administrador, quiero crear un tag con el nombre y una tarjeta de facebook
-    Given I navigate to page "http://localhost:2368/ghost/"
+    Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"
     And I wait for 1 seconds
@@ -71,7 +71,7 @@ Scenario: Como usario administrador, quiero crear un tag con el nombre y una tar
 
 @user4 @web
 Scenario: Como usario administrador, quiero volver a la lista de tags sin guardar los cambios
-    Given I navigate to page "http://localhost:2368/ghost/"
+    Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"
     And I wait for 1 seconds
