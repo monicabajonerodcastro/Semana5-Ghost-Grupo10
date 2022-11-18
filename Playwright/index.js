@@ -1,12 +1,12 @@
 //Importar Playwright
 const playwright = require('playwright');
 
-const url = 'http://localhost:2368/ghost/#/signin';
+const url = 'http://localhost:2371/ghost/#/signin';
 
 const fillLogin = async (page, adminUser, password) => {
-  await page.fill('input.email.ember-text-field.gh-input.ember-view', adminUser);
+  await page.fill('input.email.gh-input', adminUser);
   await new Promise(r => setTimeout(r, 1000));
-  await page.fill('input.password.ember-text-field.gh-input.ember-view', password);
+  await page.fill('input.password.gh-input', password);
   await new Promise(r => setTimeout(r, 1000));
 };
 
@@ -41,7 +41,7 @@ const fillLogin = async (page, adminUser, password) => {
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fillLogin(page, adminUser, password);
     await page.screenshot({path: './Crear Tag - escenario1/1 - Ingreso de credenciales.png'})
-    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
+    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
     await new Promise(r => setTimeout(r, 3000));
     await page.locator('text=Tags').click();
     await new Promise(r => setTimeout(r, 1000));
@@ -70,7 +70,7 @@ const fillLogin = async (page, adminUser, password) => {
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fillLogin(page, adminUser, password);
     await page.screenshot({path: './Crear Tag - escenario2/1 - Ingreso de credenciales.png'})
-    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
+    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
     await new Promise(r => setTimeout(r, 3000));
     await page.locator('text=Tags').click();
     await new Promise(r => setTimeout(r, 1000));
@@ -105,7 +105,7 @@ const fillLogin = async (page, adminUser, password) => {
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fillLogin(page, adminUser, password);
     await page.screenshot({path: './Crear Tag - escenario3/1 - Ingreso de credenciales.png'})
-    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
+    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
     await new Promise(r => setTimeout(r, 3000));
     await page.locator('text=Tags').click();
     await new Promise(r => setTimeout(r, 1000));
@@ -140,7 +140,7 @@ const fillLogin = async (page, adminUser, password) => {
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fillLogin(page, adminUser, password);
     await page.screenshot({path: './Crear Tag - escenario4/1 - Ingreso de credenciales.png'})
-    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
+    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
     await new Promise(r => setTimeout(r, 3000));
     await page.locator('text=Tags').click();
     await new Promise(r => setTimeout(r, 1000));
@@ -172,7 +172,7 @@ const fillLogin = async (page, adminUser, password) => {
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fillLogin(page, adminUser, password);
     await page.screenshot({path: './Crear Post - escenario1/1 - Ingreso de credenciales.png'})
-    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
+    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
     await new Promise(r => setTimeout(r, 3000));
     await page.locator('a.ember-view.gh-secondary-action.gh-nav-new-post').click();
     await new Promise(r => setTimeout(r, 1000));
@@ -207,7 +207,7 @@ const fillLogin = async (page, adminUser, password) => {
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fillLogin(page, adminUser, password);
     await page.screenshot({path: './Crear Post - escenario2/1 - Ingreso de credenciales.png'})
-    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
+    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
     await new Promise(r => setTimeout(r, 3000));
     await page.locator('a.ember-view.gh-secondary-action.gh-nav-new-post').click();
     await new Promise(r => setTimeout(r, 1000));
@@ -250,7 +250,7 @@ const fillLogin = async (page, adminUser, password) => {
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fillLogin(page, adminUser, password);
     await page.screenshot({path: './Crear Post - escenario3/1 - Ingreso de credenciales.png'})
-    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
+    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
     await new Promise(r => setTimeout(r, 3000));
     await page.locator('a.ember-view.gh-secondary-action.gh-nav-new-post').click();
     await new Promise(r => setTimeout(r, 1000));
@@ -279,7 +279,7 @@ const fillLogin = async (page, adminUser, password) => {
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fillLogin(page, adminUser, password);
     await page.screenshot({path: './Crear Post - escenario4/1 - Ingreso de credenciales.png'})
-    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view');
+    await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded');
 
@@ -610,7 +610,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.screenshot({ path: './Update profile - Scenario 1/1 - Sign in.png' });
     await page.click('.login.gh-btn.gh-btn-login');
     await new Promise((r) => setTimeout(r, 3000));
-    await page.locator('.ember-view.ember-basic-dropdown-trigger').click();
+    await page.locator('.pe-all > .ember-view.ember-basic-dropdown-trigger').click();
     await new Promise((r) => setTimeout(r, 1000));
     await page.screenshot({ path: './Update profile - Scenario 1/2 - Click your profile.png' });
     await page.locator('text=Your profile').click();
@@ -647,7 +647,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.screenshot({ path: './Update profile - Scenario 2/1 - Sign in.png' });
     await page.click('.login.gh-btn.gh-btn-login');
     await new Promise((r) => setTimeout(r, 3000));
-    await page.locator('.ember-view.ember-basic-dropdown-trigger').click();
+    await page.locator('.pe-all > .ember-view.ember-basic-dropdown-trigger').click();
     await new Promise((r) => setTimeout(r, 1000));
     await page.screenshot({ path: './Update profile - Scenario 2/2 - Click your profile.png' });
     await page.locator('text=Your profile').click();
@@ -680,16 +680,16 @@ const fillLogin = async (page, adminUser, password) => {
     await page.screenshot({ path: './Update profile - Scenario 3/1 - Sign in.png' });
     await page.click('.login.gh-btn.gh-btn-login');
     await new Promise((r) => setTimeout(r, 3000));
-    await page.locator('.ember-view.ember-basic-dropdown-trigger').click();
+    await page.locator('.pe-all > .ember-view.ember-basic-dropdown-trigger').click();
     await new Promise((r) => setTimeout(r, 1000));
     await page.screenshot({ path: './Update profile - Scenario 3/2 - Click your profile.png' });
     await page.locator('text=Your profile').click();
     await new Promise((r) => setTimeout(r, 1000));
     await page.type('input[id=user-password-old]', password);
     await new Promise((r) => setTimeout(r, 1000));
-    await page.type('input[id=user-password-new]', 'MISW202215');
+    await page.type('input[id=user-password-new]', password);
     await new Promise((r) => setTimeout(r, 1000));
-    await page.type('input[id=user-new-password-verification]', 'MISW202215');
+    await page.type('input[id=user-new-password-verification]', password);
     await new Promise((r) => setTimeout(r, 1000));
     await page.screenshot({ path: './Update profile - Scenario 3/3 - Fill the password form.png' });
     await page.locator('text=Change Password').click();

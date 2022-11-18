@@ -48,9 +48,9 @@ Feature: Update profile
     And I wait for 1 seconds
     When I enter the old password "<PASSWORD>"
     And I wait for 1 seconds
-    When I enter the new password "<NEW_PASSWORD>"
+    When I enter the new password "<PASSWORD>"
     And I wait for 1 seconds
-    When I confirm the new password "<NEW_PASSWORD>"
+    When I confirm the new password "<PASSWORD>"
     And I wait for 1 seconds
     When I click the change password button
     And I wait for 1 seconds
@@ -74,9 +74,9 @@ Feature: Update profile
     And I wait for 1 seconds
     When I enter a wrong password "<WRONG_PASSWORD>"
     And I wait for 1 seconds
-    When I enter the new password "<NEW_PASSWORD>"
+    When I enter the new password "<PASSWORD>"
     And I wait for 1 seconds
-    When I confirm the new password "<NEW_PASSWORD>"
+    When I confirm the new password "<PASSWORD>"
     And I wait for 1 seconds
     When I click the change password button
     And I wait for 1 seconds
