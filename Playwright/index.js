@@ -1,7 +1,7 @@
 //Importar Playwright
 const playwright = require('playwright');
 
-const url = 'http://localhost:2371/ghost/#/signin';
+const url = 'http://localhost:2368/ghost/#/signin';
 
 const fillLogin = async (page, adminUser, password) => {
   await page.fill('input.email.gh-input', adminUser);
