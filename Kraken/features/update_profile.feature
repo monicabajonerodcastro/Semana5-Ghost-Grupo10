@@ -1,7 +1,7 @@
 Feature: Update profile
 
   @user1 @web
-  Scenario: As an administrator user I want to update my profile
+  Scenario: Scenario18: As an administrator user I want to update my profile
     Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"
@@ -31,7 +31,7 @@ Feature: Update profile
     Then I see the success update profile message
 
   @user2 @web
-  Scenario: As an administrator user I want to change my password
+  Scenario: Scenario19: As an administrator user I want to change my password
     Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"
@@ -57,7 +57,7 @@ Feature: Update profile
     Then I see the success change password message
 
   @user3 @web
-  Scenario: As an administrator user I want to ensure my password can not be changed if it is not correct
+  Scenario: Scenario20: As an administrator user I want to ensure my password can not be changed if it is not correct
     Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"

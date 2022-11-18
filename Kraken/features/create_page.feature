@@ -1,7 +1,7 @@
 Feature: Create page
 
   @user1 @web
-  Scenario: As an administrator user I want to create a page
+  Scenario: Scenario9: As an administrator user I want to create a page
     Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"
@@ -29,7 +29,7 @@ Feature: Create page
     Then I see the success page creation message
 
   @user2 @web
-  Scenario: As an administrator user I want to create a page with a feature image
+  Scenario: Scenario10:As an administrator user I want to create a page with a feature image
     Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"

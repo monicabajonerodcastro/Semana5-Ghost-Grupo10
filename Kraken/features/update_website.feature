@@ -1,7 +1,7 @@
 Feature: Update website
 
   @user1 @web
-  Scenario: As an administrator user I want to update my website title
+  Scenario: Scenario11: As an administrator user I want to update my website title
     Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"
@@ -22,7 +22,7 @@ Feature: Update website
     Then I see the success update title message
 
   @user2 @web
-  Scenario: As an administrator user I want to update my website publication language
+  Scenario: Scenario12: As an administrator user I want to update my website publication language
     Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"
@@ -44,7 +44,7 @@ Feature: Update website
     Then I see the success update title message
 
   @user3 @web
-  Scenario: As an administrator user I want to update mywebsite meta data
+  Scenario: Scenario13: As an administrator user I want to update mywebsite meta data
     Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"
@@ -66,7 +66,7 @@ Feature: Update website
     Then I see the success update title message
 
   @user4 @web
-  Scenario: As an administrator user I want to update mywebsite twitter card
+  Scenario: Scenario14: As an administrator user I want to update mywebsite twitter card
     Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"
@@ -88,7 +88,7 @@ Feature: Update website
     Then I see the success update title message
 
   @user5 @web
-  Scenario: As an administrator user I want to update mywebsite social accounts
+  Scenario: Scenario15: As an administrator user I want to update mywebsite social accounts
     Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"

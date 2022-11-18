@@ -1,7 +1,7 @@
 Feature: Crear tag
 
 @user1 @web
-Scenario: Como usario administrador, quiero crear un tag solo con el nombre
+Scenario: Scenario5: As an admin user I want to create a tag with just the name
     Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"
@@ -21,7 +21,7 @@ Scenario: Como usario administrador, quiero crear un tag solo con el nombre
     Then I expect to find the saved button
 
 @user2 @web
-Scenario: Como usario administrador, quiero crear un tag especificando slug y descripción
+Scenario: Scenario6: As an admin user I want to create a tag with the name, a specific slug and a description
     Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"
@@ -45,7 +45,7 @@ Scenario: Como usario administrador, quiero crear un tag especificando slug y de
     Then I expect to find the saved button
 
 @user3 @web
-Scenario: Como usario administrador, quiero crear un tag con el nombre y una tarjeta de facebook
+Scenario: Scenario7: As an admin user I want to create a tag with just the name and a facebook card
     Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"
@@ -70,7 +70,7 @@ Scenario: Como usario administrador, quiero crear un tag con el nombre y una tar
     Then I expect to find the saved button
 
 @user4 @web
-Scenario: Como usario administrador, quiero volver a la lista de tags sin guardar los cambios
+Scenario: Scenario8: As an admin user I want to get back to the list of tags without saving the changes of the new tag
     Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"

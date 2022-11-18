@@ -1,7 +1,7 @@
 Feature: Create member
 
   @user1 @web
-  Scenario: As an administrator user I want to create a member
+  Scenario: Scenario16: As an administrator user I want to create a member
     Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"
@@ -23,7 +23,7 @@ Feature: Create member
     Then I see the success member creation
 
   @user2 @web
-  Scenario: As an administrator user I want to create a member wihout a valid email
+  Scenario: Scenario17: As an administrator user I want to create a member wihout a valid email
     Given I navigate to page "<LOGIN_URL>"
     And I wait for 3 seconds
     When I enter email "<USERNAME>"
