@@ -41,7 +41,7 @@ for(var i = 1; i <= krakenScenariosName.length; i++){
     }
 }
 
-//Kraken scenarios
+//Playwright scenarios
 for(var i = 1; i <= playwrightScenariosName.length; i++){
     const scenarioName = playwrightScenariosName[i-1];
     const steps = filenames.filter(file => {
