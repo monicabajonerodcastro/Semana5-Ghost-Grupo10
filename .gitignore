@@ -353,4 +353,5 @@ MigrationBackup/
 */**/.DS_Store
 .DS_Store
 
-/screenshots
+/**/screenshots
+/**/Backstop/backstop_data
