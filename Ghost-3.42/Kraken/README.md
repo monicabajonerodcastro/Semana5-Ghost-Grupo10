@@ -29,7 +29,8 @@ npm install chai
 ```
 2. Exporte en PATH (Linux) o incluya en el PATH de las varables de entorno (Windows) la ruta bin del SDK de Android
 *Nota: Si no conoce la ruta de instalación del SDK de Android, abra Android Studio e ingrese a Settings, en la seccion Appearance & Behavior seleccione la subsección System Settings y dirijase a Android SDK. Allí encontrará la ruta donde se encuentra instalado el SDK en el campo Android SDK Location.*
-3. Dentro de la carpeta Kraken de este proyecto, encontrará el archivo *properties.json*, reemplace en este archivo los valores de las propiedades *USERNAME* y *PASSWORD* con el usuario y contraseña creó anteriormente en Ghost.
+3. Dentro de la carpeta Kraken de este proyecto, encontrará el archivo *properties.json*, reemplace en este archivo los valores de las propiedades *USERNAME*, *PASSWORD*, *LOGIN_URL* y *GHOST_VERSION* con el usuario, contraseña, url y version de ghost que tiene en su máquina.
+
 ## Ejecución
 Para la ejecución, debe tener en cuenta que se debe utilizar el archivo *kraken-node* que se instaló de manera global. Para esto, debe usar la ruta relativa de la instalación, ejecutandolo desde la carpeta Kraken de éste proyecto.
 ```bash

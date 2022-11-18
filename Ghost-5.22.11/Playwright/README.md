@@ -18,10 +18,12 @@ Para más información acerca de la herramienta, ingrese [aquí](https://playwri
 ```bash
 npm install playwright
 ```
+
 3. Asegurese que Ghost 5.22.11 está en ejecución y se despliega en http://localhost:2369/
+
 4. Corra el siguiente comando en consola
 ```bash
 node index.js
 ```
-5. Ingrese el email y contraseña solicitados
-6. Una vez se lea el mensaje de que todas las pruebas finalizaron, podrá ingresar a la carpeta correspondiente dentro de playwright para ver los resultados en imagenes (Por ejemplo para la funcionalidad Crear Post en escenario 1 encontrará la carpeta "Crear Post - escenario1).
+5. Ingrese el email, contraseña y la versión de ghost solicitados
+
