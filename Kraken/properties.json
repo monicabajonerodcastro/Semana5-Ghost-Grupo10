@@ -1,6 +1,6 @@
 {
-  "USERNAME": "m.bajonero@uniandes.edu.co",
-  "PASSWORD": "Pass123456",  
+  "USERNAME": "Ingrese aquí su usuario de ghost",
+  "PASSWORD": "Ingrese aquí su contraseña de ghost",  
   "LOGIN_URL": "http://localhost:2371/ghost/#/signin",
   "WRONG_PASSWORD": "WRONGPASSWORD",
   "GHOST_VERSION": "5.22.11"
