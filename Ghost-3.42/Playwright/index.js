@@ -37,12 +37,6 @@ const fillLogin = async (page, adminUser, password) => {
     console.log('Project loaded')
 
     //Interactuar con la aplicación web
-    
-    //Abrir la URL a probar en la página y cargar el proyecto en una SPA
-    await page.goto(url);
-    await new Promise(r => setTimeout(r, 3000));
-    console.log('Project loaded')
-
     console.log('--------------------------------------------------------------------------------------------------------------')
     console.log('Create Tag - Scenario6: As an admin user I want to create a tag with the name, a specific slug and a description')
     console.log('--------------------------------------------------------------------------------------------------------------')
@@ -138,6 +132,75 @@ const fillLogin = async (page, adminUser, password) => {
     browser = await playwright[browserType].launch();
     context = await browser.newContext();
     page = await context.newPage();
+
+    //Abrir la URL a probar en la página y cargar el proyecto en una SPA
+    await page.goto(url);
+    await new Promise(r => setTimeout(r, 3000));
+    console.log('Project loaded')
+
+    console.log('--------------------------------------------------------------------------------------------------------------');
+    console.log('Create Page - Scenario9: As an administrator user, I want to create a page');
+    console.log('--------------------------------------------------------------------------------------------------------------');
+    await fillLogin(page, adminUser, password);
+    await page.screenshot({path: `${screenshotPath}9_step1.png`})
+    await page.click('button.login.gh-btn.gh-btn-blue.gh-btn-block.gh-btn-icon.ember-view');
+    await new Promise((r) => setTimeout(r, 3000));
+    await page.locator('text=Pages').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.locator('text=New page').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({path: `${screenshotPath}9_step2.png`})
+    await page.fill('textarea.gh-editor-title.ember-text-area.gh-input.ember-view', 'My first page title');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.fill('div.koenig-editor__editor.__mobiledoc-editor.__has-no-content', 'My first page body');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({path: `${screenshotPath}9_step3.png`})
+    await page.locator('div.ember-view.ember-basic-dropdown-trigger.gh-btn.gh-btn-outline.gh-publishmenu-trigger').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({path: `${screenshotPath}9_step4.png`})
+    await page.click('button.gh-btn.gh-btn-blue.gh-publishmenu-button.gh-btn-icon.ember-view');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({path: `${screenshotPath}9_step5.png`})
+    await new Promise((r) => setTimeout(r, 8000));
+    await page.screenshot({path: `${screenshotPath}9_step6.png`})
+    console.log('Create page - Scenario 9 - Completed');
+
+    browser = await playwright[browserType].launch();
+    context = await browser.newContext();
+    page = await context.newPage();
+
+    //Abrir la URL a probar en la página y cargar el proyecto en una SPA
+    await page.goto(url);
+    await new Promise(r => setTimeout(r, 3000));
+    console.log('Project loaded');
+
+    console.log('--------------------------------------------------------------------------------------------------------------');
+    console.log('Update profile - Scenario18: As an administrator user I want to update my profile');
+    console.log('--------------------------------------------------------------------------------------------------------------');
+    await fillLogin(page, adminUser, password);
+    await page.screenshot({path: `${screenshotPath}18_step1.png`})
+    await page.click('button.login.gh-btn.gh-btn-blue.gh-btn-block.gh-btn-icon.ember-view');
+    await new Promise((r) => setTimeout(r, 3000));
+    await page.locator('div.gh-user-avatar.relative').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({path: `${screenshotPath}18_step2.png`})
+    await page.locator('text=Your profile').click();
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('input[id=user-location]', 'My updated location');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('input[id=user-website]', 'http://myupdatedwebsite.com');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('input[id=user-facebook]', 'https://www.facebook.com/myusername');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('input[id=user-twitter]', 'https://www.twitter.com/myusername');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.type('textarea[id=user-bio]', 'My updated bio');
+    await new Promise((r) => setTimeout(r, 1000));
+    await page.screenshot({path: `${screenshotPath}18_step3.png`})
+    await page.locator('text=Save').click();
+    await new Promise((r) => setTimeout(r, 500));
+    await page.screenshot({path: `${screenshotPath}18_step4.png`})
+    console.log('Update profile - Scenario 18 - Completed');
 
     console.log('Todas las pruebas finalizaron correctamente')   
     //Finalizar la prueba
