@@ -15,7 +15,7 @@ When('I enter password {kraken-string}', async function (password) {
 });
 
 When('I click the login button', async function () {
-  const element = await this.driver.$('button.login.gh-btn.gh-btn-login');
+  const element = await this.driver.$('button.login.gh-btn');
   return await element.click();
 });
 
