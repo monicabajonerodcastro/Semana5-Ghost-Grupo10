@@ -2,7 +2,7 @@ const { When, Then } = require('@cucumber/cucumber');
 const { expect } = require('chai');
 
 When('I click the settings button', async function () {
-  const element = await this.driver.$('a[href="#/settings/"]');
+  const element = await this.driver.$('a[href="#/settings/general/"]');
   return await element.click();
 });
 
@@ -62,12 +62,12 @@ When('I enter the twitter title {kraken-string}', async function (location) {
 });
 
 When('I enter a facebook website {kraken-string}', async function (location) {
-  const element = await this.driver.$('input[placeholder="https://www.facebook.com/username"]');
+  const element = await this.driver.$('input[placeholder="https://www.facebook.com/ghost"]');
   return await element.setValue(location);
 });
 
 When('I enter a twitter website {kraken-string}', async function (location) {
-  const element = await this.driver.$('input[placeholder="https://twitter.com/username"]');
+  const element = await this.driver.$('input[placeholder="https://twitter.com/ghost"]');
   return await element.setValue(location);
 });
 

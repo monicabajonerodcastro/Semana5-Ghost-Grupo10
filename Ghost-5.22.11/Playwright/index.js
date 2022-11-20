@@ -37,12 +37,6 @@ const fillLogin = async (page, adminUser, password) => {
     console.log('Project loaded')
 
     //Interactuar con la aplicación web
-    
-    //Abrir la URL a probar en la página y cargar el proyecto en una SPA
-    await page.goto(url);
-    await new Promise(r => setTimeout(r, 3000));
-    console.log('Project loaded')
-
     console.log('--------------------------------------------------------------------------------------------------------------')
     console.log('Create Post - Scenario1: As an admin user, I want to create a post')
     console.log('--------------------------------------------------------------------------------------------------------------')
@@ -291,6 +285,11 @@ const fillLogin = async (page, adminUser, password) => {
     browser = await playwright[browserType].launch();
     context = await browser.newContext();
     page = await context.newPage();
+
+    //Abrir la URL a probar en la página y cargar el proyecto en una SPA
+    await page.goto(url);
+    await new Promise(r => setTimeout(r, 3000));
+    console.log('Project loaded')
 
     console.log('--------------------------------------------------------------------------------------------------------------');
     console.log('Create Page - Scenario9: As an administrator user, I want to create a page');
