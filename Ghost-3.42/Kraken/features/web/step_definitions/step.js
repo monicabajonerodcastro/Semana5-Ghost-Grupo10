@@ -78,10 +78,10 @@ When('I click on the facebook card', async function(){
 });
 
 When('I fill the title with {string} and the description with {string}', async function(title, description){
-    let elementTitle = await this.driver.$('input[name="post-setting-og-title"]');
+    let elementTitle = await this.driver.$('.post-setting-og-title');
     await elementTitle.setValue(title);
 
-    let elementDescription = await this.driver.$('textarea[name="post-setting-og-description"]');
+    let elementDescription = await this.driver.$('.post-setting-og-description');
     return await elementDescription.setValue(description);
 })
 
