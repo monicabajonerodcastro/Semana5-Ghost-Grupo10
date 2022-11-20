@@ -12,6 +12,7 @@ https://github.com/monicabajonerodcastro/Semana5-Ghost-Grupo10/tree/master/Ghost
 - Playwright: https://github.com/monicabajonerodcastro/Semana5-Ghost-Grupo10/tree/master/Ghost-5.22.11/Playwright
 
 ### Funcionalidades Semana 6 - Ghost 3.42 (5 escenarios por herramienta)
+https://github.com/monicabajonerodcastro/Semana5-Ghost-Grupo10/tree/master/Ghost-3.42
 - Kraken: https://github.com/monicabajonerodcastro/Semana5-Ghost-Grupo10/tree/master/Ghost-3.42/Kraken
 - Playwright https://github.com/monicabajonerodcastro/Semana5-Ghost-Grupo10/tree/master/Ghost-3.42/Playwright
 
@@ -34,3 +35,8 @@ backstop test --configPath=index.js
 ```bash
 backstop openReport --configPath=index.js
 ```
+
+### Ventajas y desventajas de Backstop y Resemble
+
+
+### Video Semana 6
