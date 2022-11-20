@@ -1,4 +1,4 @@
-# Semana5- Pruebas automatizadas en Ghost - Grupo10
+# Pruebas automatizadas en Ghost - Grupo10
 En la carpeta de cada herramienta, se especifican los requisitos e instrucciones de ejecución de las pruebas.
 
 ### Herramientas
@@ -36,7 +36,16 @@ backstop test --configPath=index.js
 backstop openReport --configPath=index.js
 ```
 
-### Ventajas y desventajas de Backstop y Resemble
+### Ventajas y desventajas de BackstopJS y Resemble.js
 
+En el siguiente enlace podrá encontrar las ventajas y desventajas de las herramientas:
+
+[Ventajas y desventajas de BackstopJS y Resemble.js](https://github.com/monicabajonerodcastro/Semana5-Ghost-Grupo10/wiki/Resemble-vs-backstop)
+
+### Registro de incidencias
+
+En el siguiente enlace podrá encontrar las diferencias visuales encontradas en el sistema de registro de incidencias del grupo:
+
+[Sistema de registro de incidencias](https://github.com/monicabajonerodcastro/Ghost-Issues/issues)
 
 ### Video Semana 6
