@@ -4,7 +4,7 @@ En la carpeta de cada herramienta, se especifican los requisitos e instrucciones
 ### Herramientas
 - Kraken
 - Playwright
-- Ghost 5.22.11
+- Ghost 3.42
 
 ### Funcionalidades
 1. Crear Post
@@ -15,20 +15,20 @@ En la carpeta de cada herramienta, se especifican los requisitos e instrucciones
 6. Crear Nuevo Miembro
 
 ### Escenarios
-- Create Post
+- Kraken
 Scenario1: As an admin user, I want to create a post
 Scenario2: As an admin user, I want to create a post with a bookmark
-Scenario3: As an admin user, I want to preview my post
 Scenario4: As an admin user, I want to create a post with a facebook card
-
-- Create tag
 Scenario5: As an admin user I want to create a tag with just the name
+
+- Playwright
 Scenario6: As an admin user I want to create a tag with the name, a specific slug and a description
 Scenario7: As an admin user I want to create a tag with just the name and a facebook card
 Scenario8: As an admin user I want to get back to the list of tags without saving the changes of the new tag
-
-- Create page
 Scenario9: As an administrator user, I want to create a page
+Scenario18: As an administrator user I want to update my profile
+
+
 Scenario10: As an administrator user I want to create a page with a feature image
 
 - Update website
