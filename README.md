@@ -7,14 +7,14 @@ En la carpeta de cada herramienta, se especifican los requisitos e instrucciones
 
 ### Funcionalidades Semana 5 - Ghost 5.22.18 (20 escenarios por herramienta)
 
-- Intrucciones: https://github.com/monicabajonerodcastro/Semana5-Ghost-Grupo10/tree/master/Ghost-5.22.11
-- Kraken: https://github.com/monicabajonerodcastro/Semana5-Ghost-Grupo10/tree/master/Ghost-5.22.11/Kraken
-- Playwright: https://github.com/monicabajonerodcastro/Semana5-Ghost-Grupo10/tree/master/Ghost-5.22.11/Playwright
+- Generalidades: https://github.com/monicabajonerodcastro/Semana5-Ghost-Grupo10/tree/master/Ghost-5.22.11
+- Intrucciones Kraken: https://github.com/monicabajonerodcastro/Semana5-Ghost-Grupo10/tree/master/Ghost-5.22.11/Kraken
+- Intrucciones Playwright: https://github.com/monicabajonerodcastro/Semana5-Ghost-Grupo10/tree/master/Ghost-5.22.11/Playwright
 
 ### Funcionalidades Semana 6 - Ghost 3.42 (5 escenarios por herramienta)
-- Intrucciones: https://github.com/monicabajonerodcastro/Semana5-Ghost-Grupo10/tree/master/Ghost-3.42
-- Kraken: https://github.com/monicabajonerodcastro/Semana5-Ghost-Grupo10/tree/master/Ghost-3.42/Kraken
-- Playwright https://github.com/monicabajonerodcastro/Semana5-Ghost-Grupo10/tree/master/Ghost-3.42/Playwright
+- Generalidades: https://github.com/monicabajonerodcastro/Semana5-Ghost-Grupo10/tree/master/Ghost-3.42
+- Intrucciones Kraken: https://github.com/monicabajonerodcastro/Semana5-Ghost-Grupo10/tree/master/Ghost-3.42/Kraken
+- Intrucciones Playwright https://github.com/monicabajonerodcastro/Semana5-Ghost-Grupo10/tree/master/Ghost-3.42/Playwright
 
 ### Backstop:
 Recuerde que debe tener instalado Backstop en su máquina local.
