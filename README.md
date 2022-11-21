@@ -49,3 +49,5 @@ En el siguiente enlace podrá encontrar las diferencias visuales encontradas en 
 [Sistema de registro de incidencias](https://github.com/monicabajonerodcastro/Ghost-Issues/issues)
 
 ### Video Semana 6
+
+(Video semana 6 - Youtube) [https://youtu.be/cX8Mh5ji9KY]
