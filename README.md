@@ -50,4 +50,4 @@ En el siguiente enlace podrá encontrar las diferencias visuales encontradas en 
 
 ### Video Semana 6
 
-(Video semana 6 - Youtube) [https://youtu.be/cX8Mh5ji9KY]
+[Video semana 6 - Youtube](https://youtu.be/cX8Mh5ji9KY)
