@@ -23,6 +23,8 @@ filenames.forEach(file => {
 });
 
 
+
+
 //Kraken scenarios
 for(var i = 1; i <= krakenScenariosName.length; i++){
     const scenarioName = krakenScenariosName[i-1];
@@ -59,6 +61,10 @@ for(var i = 1; i <= playwrightScenariosName.length; i++){
     }
 }
  
+
+
+
+
 // BackstopJS configuration
 module.exports =
     {

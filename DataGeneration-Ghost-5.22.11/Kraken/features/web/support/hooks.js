@@ -5,15 +5,6 @@ const fs = require('fs');
 
 var stepCounter = 1;
 
-
-BeforeAll(async function(){
-  const screenshotsDir = `../../screenshots/ghost-${GHOST_VERSION}`;
-  if(!fs.existsSync(screenshotsDir)){
-    fs.mkdirSync(screenshotsDir, { recursive: true })
-  }
-  
-})
-
 Before(async function(scenario) {
   this.deviceClient = new WebClient('chrome', {}, this.userId);
   this.driver = await this.deviceClient.startKrakenForUserId(this.userId);
@@ -23,13 +14,19 @@ Before(async function(scenario) {
 
 })
 
+After(async function() {
+  await this.deviceClient.stopKrakenForUserId(this.userId);
+});
+
 BeforeStep(async function() {
   this.driver.saveScreenshot(`../../screenshots/ghost-${GHOST_VERSION}/kraken_${this.scenarioName}_step${stepCounter}.png`)
   stepCounter++;
 })
 
-After(async function() {
-  await this.deviceClient.stopKrakenForUserId(this.userId);
-});
-
-
+BeforeAll(async function(){
+  const screenshotsDir = `../../screenshots/ghost-${GHOST_VERSION}`;
+  if(!fs.existsSync(screenshotsDir)){
+    fs.mkdirSync(screenshotsDir, { recursive: true })
+  }
+  
+})
