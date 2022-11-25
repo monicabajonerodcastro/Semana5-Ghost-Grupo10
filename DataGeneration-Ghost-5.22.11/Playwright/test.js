@@ -5,8 +5,13 @@ const config = require('./config.json');
 const Login = require('./page-objects/login');
 const Home = require('./page-objects/home');
 const Profile = require('./page-objects/profile');
+const Member = require('./page-objects/member');
+const Setting = require('./page-objects/setting');
 const Page = require('./page-objects/page');
-const { createProfileDataPool, createPageDataPool } = require('./data-pool');
+const {
+  createProfileDataPool, createPageDataPool,
+  createMemberDataPool, createSettingDataPool,
+} = require('./data-pool');
 
 const { headless, url, username, password, screenshotPath } = config;
 
@@ -17,11 +22,15 @@ let context;
 
 let pageDataPool;
 let profileDataPool;
-const dataPoolSize = 10;
+let memberDataPool;
+let settingDataPool;
+const dataPoolSize = 1000;
 
 before(async () => {
   pageDataPool = createPageDataPool(dataPoolSize);
   profileDataPool = createProfileDataPool(dataPoolSize);
+  memberDataPool = createMemberDataPool(dataPoolSize);
+  settingDataPool = createSettingDataPool(dataPoolSize);
 });
 
 beforeEach(async () => {
@@ -32,6 +41,830 @@ beforeEach(async () => {
 
 afterEach(async () => {
   browser.close();
+});
+
+it('Scenario 61: Create a new member with name and email', async () => {
+  name = 'scenario-61';
+  const login = new Login(page);
+  const home = new Home(page);
+  const member = new Member(page);
+
+  const userName = memberDataPool[randomIndex(dataPoolSize)].name;
+  const email = memberDataPool[randomIndex(dataPoolSize)].email;
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMembers();
+  await saveScreenshot(2);
+  await member.goToNewMember();
+  await saveScreenshot(3);
+  await member.fillName(userName);
+  await saveScreenshot(4);
+  await member.fillEmail(email);
+  await saveScreenshot(4);
+  await member.save();
+  await saveScreenshot(5);
+  const success = await member.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 62: Create a new member with name, email and note', async () => {
+  name = 'scenario-62';
+  const login = new Login(page);
+  const home = new Home(page);
+  const member = new Member(page);
+
+  const userName = memberDataPool[randomIndex(dataPoolSize)].name;
+  const email = memberDataPool[randomIndex(dataPoolSize)].email;
+  const note = memberDataPool[randomIndex(dataPoolSize)].note;
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMembers();
+  await saveScreenshot(2);
+  await member.goToNewMember();
+  await saveScreenshot(3);
+  await member.fillName(userName);
+  await saveScreenshot(4);
+  await member.fillEmail(email);
+  await saveScreenshot(5);
+  await member.fillNote(note);
+  await saveScreenshot(6);
+  await member.save();
+  await saveScreenshot(7);
+  const success = await member.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 63: Create a new member with email, note and label', async () => {
+  name = 'scenario-63';
+  const login = new Login(page);
+  const home = new Home(page);
+  const member = new Member(page);
+
+  const email = memberDataPool[randomIndex(dataPoolSize)].email;
+  const note = memberDataPool[randomIndex(dataPoolSize)].note;
+  const label = memberDataPool[randomIndex(dataPoolSize)].label;
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMembers();
+  await saveScreenshot(2);
+  await member.goToNewMember();
+  await saveScreenshot(3);
+  await member.fillEmail(email);
+  await saveScreenshot(4);
+  await member.fillLabel(label);
+  await saveScreenshot(5);
+  await member.fillNote(note);
+  await saveScreenshot(6);
+  await member.save();
+  await saveScreenshot(7);
+  const success = await member.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 64: Update website title and description', async () => {
+  name = 'scenario-64';
+  const login = new Login(page);
+  const home = new Home(page);
+  const setting = new Setting(page);
+
+  const title = settingDataPool[randomIndex(dataPoolSize)].title;
+  const description = settingDataPool[randomIndex(dataPoolSize)].description;
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMySettings();
+  await saveScreenshot(2);
+  await home.goToMyGeneralSettings();
+  await saveScreenshot(3);
+  await setting.expandTitleAndDescription();
+  await saveScreenshot(4);
+  await setting.fillTitle(title);
+  await saveScreenshot(5);
+  await setting.fillDescription(description);
+  await saveScreenshot(6);
+  await setting.updateSetting();
+  await saveScreenshot(7);
+  const success = await setting.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 65: Update website metadata', async () => {
+  name = 'scenario-65';
+  const login = new Login(page);
+  const home = new Home(page);
+  const setting = new Setting(page);
+
+  const title = settingDataPool[randomIndex(dataPoolSize)].metadataTitle;
+  const description = settingDataPool[randomIndex(dataPoolSize)].metadataDescription;
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMySettings();
+  await saveScreenshot(2);
+  await home.goToMyGeneralSettings();
+  await saveScreenshot(3);
+  await setting.expandMetadata();
+  await saveScreenshot(4);
+  await setting.fillMetadataTitle(title);
+  await saveScreenshot(5);
+  await setting.fillMetadataDescription(description);
+  await saveScreenshot(6);
+  await setting.updateSetting();
+  await saveScreenshot(7);
+  const success = await setting.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 66: Update website twitter card', async () => {
+  name = 'scenario-66';
+  const login = new Login(page);
+  const home = new Home(page);
+  const setting = new Setting(page);
+
+  const title = settingDataPool[randomIndex(dataPoolSize)].twitterTitle;
+  const description = settingDataPool[randomIndex(dataPoolSize)].twitterDescription;
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMySettings();
+  await saveScreenshot(2);
+  await home.goToMyGeneralSettings();
+  await saveScreenshot(3);
+  await setting.expandTwitterCard();
+  await saveScreenshot(4);
+  await setting.fillTwitterTitle(title);
+  await saveScreenshot(5);
+  await setting.fillTwitterDescription(description);
+  await saveScreenshot(6);
+  await setting.updateSetting();
+  await saveScreenshot(7);
+  const success = await setting.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 67: Update website facebook card', async () => {
+  name = 'scenario-67';
+  const login = new Login(page);
+  const home = new Home(page);
+  const setting = new Setting(page);
+
+  const title = settingDataPool[randomIndex(dataPoolSize)].facebookTitle;
+  const description = settingDataPool[randomIndex(dataPoolSize)].facebookDescription;
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMySettings();
+  await saveScreenshot(2);
+  await home.goToMyGeneralSettings();
+  await saveScreenshot(3);
+  await setting.expandFacebookCard();
+  await saveScreenshot(4);
+  await setting.fillFacebookTitle(title);
+  await saveScreenshot(5);
+  await setting.fillFacebookDescription(description);
+  await saveScreenshot(6);
+  await setting.updateSetting();
+  await saveScreenshot(7);
+  const success = await setting.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 68: Update website social networks urls', async () => {
+  name = 'scenario-68';
+  const login = new Login(page);
+  const home = new Home(page);
+  const setting = new Setting(page);
+
+  const facebookUrl = settingDataPool[randomIndex(dataPoolSize)].facebookUrl;
+  const twitterUrl = settingDataPool[randomIndex(dataPoolSize)].twitterUrl;
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMySettings();
+  await saveScreenshot(2);
+  await home.goToMyGeneralSettings();
+  await saveScreenshot(3);
+  await setting.expandSocialAccounts();
+  await saveScreenshot(4);
+  await setting.fillFacebookUrl(facebookUrl);
+  await saveScreenshot(5);
+  await setting.fillTwitterUrl(twitterUrl);
+  await saveScreenshot(6);
+  await setting.updateSetting();
+  await saveScreenshot(7);
+  const success = await setting.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 69: Update the owner full name, slug and location', async () => {
+  name = 'scenario-69';
+  const login = new Login(page);
+  const home = new Home(page);
+  const profile = new Profile(page);
+
+  const fullName = profileDataPool[randomIndex(dataPoolSize)].name;
+  const slug = profileDataPool[randomIndex(dataPoolSize)].slug;
+  const location = profileDataPool[randomIndex(dataPoolSize)].location;
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMyProfile();
+  await saveScreenshot(2);
+  await profile.fillName(fullName);
+  await saveScreenshot(3);
+  await profile.fillSlug(slug);
+  await saveScreenshot(4);
+  await profile.fillLocation(location);
+  await saveScreenshot(5);
+  await profile.updateProfile();
+  await saveScreenshot(6);
+  const success = await profile.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 70: Update the owner website, Facebook Profile, Twitter profile and Bio', async () => {
+  name = 'scenario-90';
+  const login = new Login(page);
+  const home = new Home(page);
+  const profile = new Profile(page);
+
+  const website = profileDataPool[randomIndex(dataPoolSize)].website;
+  const facebookUrl = profileDataPool[randomIndex(dataPoolSize)].facebookUrl;
+  const twitterUrl = profileDataPool[randomIndex(dataPoolSize)].twitterUrl;
+  const bio = profileDataPool[randomIndex(dataPoolSize)].bio;
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMyProfile();
+  await saveScreenshot(2);
+  await profile.fillWebsite(website);
+  await saveScreenshot(3);
+  await profile.fillFacebookUrl(facebookUrl);
+  await saveScreenshot(4);
+  await profile.fillTwitterUrl(twitterUrl);
+  await saveScreenshot(4);
+  await profile.fillBio(bio);
+  await saveScreenshot(5);
+  await profile.updateProfile();
+  await saveScreenshot(6);
+  const success = await profile.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+
+it('Scenario 71: Create a new member with name and email', async () => {
+  name = 'scenario-71';
+  const login = new Login(page);
+  const home = new Home(page);
+  const member = new Member(page);
+
+  const data = memberDataPool[randomIndex(dataPoolSize)];
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMembers();
+  await saveScreenshot(2);
+  await member.goToNewMember();
+  await saveScreenshot(3);
+  await member.fillName(data.name);
+  await saveScreenshot(4);
+  await member.fillEmail(data.email);
+  await saveScreenshot(4);
+  await member.save();
+  await saveScreenshot(5);
+  const success = await member.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 72: Create a new member with name, email and note', async () => {
+  name = 'scenario-72';
+  const login = new Login(page);
+  const home = new Home(page);
+  const member = new Member(page);
+
+  const data = memberDataPool[randomIndex(dataPoolSize)];
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMembers();
+  await saveScreenshot(2);
+  await member.goToNewMember();
+  await saveScreenshot(3);
+  await member.fillName(data.name);
+  await saveScreenshot(4);
+  await member.fillEmail(data.email);
+  await saveScreenshot(5);
+  await member.fillNote(data.note);
+  await saveScreenshot(6);
+  await member.save();
+  await saveScreenshot(7);
+  const success = await member.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 73: Create a new member with email, note and label', async () => {
+  name = 'scenario-73';
+  const login = new Login(page);
+  const home = new Home(page);
+  const member = new Member(page);
+
+  const data = memberDataPool[randomIndex(dataPoolSize)];
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMembers();
+  await saveScreenshot(2);
+  await member.goToNewMember();
+  await saveScreenshot(3);
+  await member.fillEmail(data.email);
+  await saveScreenshot(4);
+  await member.fillLabel(data.label);
+  await saveScreenshot(5);
+  await member.fillNote(data.note);
+  await saveScreenshot(6);
+  await member.save();
+  await saveScreenshot(7);
+  const success = await member.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 74: Update website title and description', async () => {
+  name = 'scenario-74';
+  const login = new Login(page);
+  const home = new Home(page);
+  const setting = new Setting(page);
+
+  const data = settingDataPool[randomIndex(dataPoolSize)];
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMySettings();
+  await saveScreenshot(2);
+  await home.goToMyGeneralSettings();
+  await saveScreenshot(3);
+  await setting.expandTitleAndDescription();
+  await saveScreenshot(4);
+  await setting.fillTitle(data.title);
+  await saveScreenshot(5);
+  await setting.fillDescription(data.description);
+  await saveScreenshot(6);
+  await setting.updateSetting();
+  await saveScreenshot(7);
+  const success = await setting.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 75: Update website metadata', async () => {
+  name = 'scenario-75';
+  const login = new Login(page);
+  const home = new Home(page);
+  const setting = new Setting(page);
+
+  const data = settingDataPool[randomIndex(dataPoolSize)];
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMySettings();
+  await saveScreenshot(2);
+  await home.goToMyGeneralSettings();
+  await saveScreenshot(3);
+  await setting.expandMetadata();
+  await saveScreenshot(4);
+  await setting.fillMetadataTitle(data.metadataTitle);
+  await saveScreenshot(5);
+  await setting.fillMetadataDescription(data.metadataDescription);
+  await saveScreenshot(6);
+  await setting.updateSetting();
+  await saveScreenshot(7);
+  const success = await setting.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 76: Update website twitter card', async () => {
+  name = 'scenario-76';
+  const login = new Login(page);
+  const home = new Home(page);
+  const setting = new Setting(page);
+
+  const data = settingDataPool[randomIndex(dataPoolSize)];
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMySettings();
+  await saveScreenshot(2);
+  await home.goToMyGeneralSettings();
+  await saveScreenshot(3);
+  await setting.expandTwitterCard();
+  await saveScreenshot(4);
+  await setting.fillTwitterTitle(data.twitterTitle);
+  await saveScreenshot(5);
+  await setting.fillTwitterDescription(data.twitterDescription);
+  await saveScreenshot(6);
+  await setting.updateSetting();
+  await saveScreenshot(7);
+  const success = await setting.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 77: Update website facebook card', async () => {
+  name = 'scenario-77';
+  const login = new Login(page);
+  const home = new Home(page);
+  const setting = new Setting(page);
+
+  const data = settingDataPool[randomIndex(dataPoolSize)];
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMySettings();
+  await saveScreenshot(2);
+  await home.goToMyGeneralSettings();
+  await saveScreenshot(3);
+  await setting.expandFacebookCard();
+  await saveScreenshot(4);
+  await setting.fillFacebookTitle(data.facebookTitle);
+  await saveScreenshot(5);
+  await setting.fillFacebookDescription(data.facebookDescription);
+  await saveScreenshot(6);
+  await setting.updateSetting();
+  await saveScreenshot(7);
+  const success = await setting.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 78: Update website social networks urls', async () => {
+  name = 'scenario-78';
+  const login = new Login(page);
+  const home = new Home(page);
+  const setting = new Setting(page);
+
+  const data = settingDataPool[randomIndex(dataPoolSize)];
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMySettings();
+  await saveScreenshot(2);
+  await home.goToMyGeneralSettings();
+  await saveScreenshot(3);
+  await setting.expandSocialAccounts();
+  await saveScreenshot(4);
+  await setting.fillFacebookUrl(data.facebookUrl);
+  await saveScreenshot(5);
+  await setting.fillTwitterUrl(data.twitterUrl);
+  await saveScreenshot(6);
+  await setting.updateSetting();
+  await saveScreenshot(7);
+  const success = await setting.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 79: Update the owner full name, slug and location', async () => {
+  name = 'scenario-79';
+  const login = new Login(page);
+  const home = new Home(page);
+  const profile = new Profile(page);
+
+  const data = profileDataPool[randomIndex(dataPoolSize)];
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMyProfile();
+  await saveScreenshot(2);
+  await profile.fillName(data.name);
+  await saveScreenshot(3);
+  await profile.fillSlug(data.slug);
+  await saveScreenshot(4);
+  await profile.fillLocation(data.location);
+  await saveScreenshot(5);
+  await profile.updateProfile();
+  await saveScreenshot(6);
+  const success = await profile.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 80: Update the owner website, Facebook Profile, Twitter profile and Bio', async () => {
+  name = 'scenario-80';
+  const login = new Login(page);
+  const home = new Home(page);
+  const profile = new Profile(page);
+
+  const data = profileDataPool[randomIndex(dataPoolSize)];
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMyProfile();
+  await saveScreenshot(2);
+  await profile.fillWebsite(data.website);
+  await saveScreenshot(3);
+  await profile.fillFacebookUrl(data.facebookUrl);
+  await saveScreenshot(4);
+  await profile.fillTwitterUrl(data.twitterUrl);
+  await saveScreenshot(4);
+  await profile.fillBio(data.bio);
+  await saveScreenshot(5);
+  await profile.updateProfile();
+  await saveScreenshot(6);
+  const success = await profile.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 81: Create a new member with name and email', async () => {
+  name = 'scenario-81';
+  const login = new Login(page);
+  const home = new Home(page);
+  const member = new Member(page);
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMembers();
+  await saveScreenshot(2);
+  await member.goToNewMember();
+  await saveScreenshot(3);
+  await member.fillName(faker.name.firstName());
+  await saveScreenshot(4);
+  await member.fillEmail(faker.internet.email());
+  await saveScreenshot(4);
+  await member.save();
+  await saveScreenshot(5);
+  const success = await member.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 82: Create a new member with name, email and note', async () => {
+  name = 'scenario-82';
+  const login = new Login(page);
+  const home = new Home(page);
+  const member = new Member(page);
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMembers();
+  await saveScreenshot(2);
+  await member.goToNewMember();
+  await saveScreenshot(3);
+  await member.fillName(faker.name.firstName());
+  await saveScreenshot(4);
+  await member.fillEmail(faker.internet.email());
+  await saveScreenshot(5);
+  await member.fillNote(faker.lorem.sentence());
+  await saveScreenshot(6);
+  await member.save();
+  await saveScreenshot(7);
+  const success = await member.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 83: Create a new member with email, note and label', async () => {
+  name = 'scenario-83';
+  const login = new Login(page);
+  const home = new Home(page);
+  const member = new Member(page);
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMembers();
+  await saveScreenshot(2);
+  await member.goToNewMember();
+  await saveScreenshot(3);
+  await member.fillEmail(faker.internet.email());
+  await saveScreenshot(4);
+  await member.fillLabel(faker.lorem.sentence());
+  await saveScreenshot(5);
+  await member.fillNote(faker.lorem.sentence());
+  await saveScreenshot(6);
+  await member.save();
+  await saveScreenshot(7);
+  const success = await member.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 84: Update website title and description', async () => {
+  name = 'scenario-84';
+  const login = new Login(page);
+  const home = new Home(page);
+  const setting = new Setting(page);
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMySettings();
+  await saveScreenshot(2);
+  await home.goToMyGeneralSettings();
+  await saveScreenshot(3);
+  await setting.expandTitleAndDescription();
+  await saveScreenshot(4);
+  await setting.fillTitle(faker.lorem.sentence());
+  await saveScreenshot(5);
+  await setting.fillDescription(faker.lorem.sentence());
+  await saveScreenshot(6);
+  await setting.updateSetting();
+  await saveScreenshot(7);
+  const success = await setting.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 85: Update website metadata', async () => {
+  name = 'scenario-85';
+  const login = new Login(page);
+  const home = new Home(page);
+  const setting = new Setting(page);
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMySettings();
+  await saveScreenshot(2);
+  await home.goToMyGeneralSettings();
+  await saveScreenshot(3);
+  await setting.expandMetadata();
+  await saveScreenshot(4);
+  await setting.fillMetadataTitle(faker.lorem.sentence());
+  await saveScreenshot(5);
+  await setting.fillMetadataDescription(faker.lorem.sentence());
+  await saveScreenshot(6);
+  await setting.updateSetting();
+  await saveScreenshot(7);
+  const success = await setting.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 86: Update website twitter card', async () => {
+  name = 'scenario-86';
+  const login = new Login(page);
+  const home = new Home(page);
+  const setting = new Setting(page);
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMySettings();
+  await saveScreenshot(2);
+  await home.goToMyGeneralSettings();
+  await saveScreenshot(3);
+  await setting.expandTwitterCard();
+  await saveScreenshot(4);
+  await setting.fillTwitterTitle(faker.lorem.sentence());
+  await saveScreenshot(5);
+  await setting.fillTwitterDescription(faker.lorem.sentence());
+  await saveScreenshot(6);
+  await setting.updateSetting();
+  await saveScreenshot(7);
+  const success = await setting.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 87: Update website facebook card', async () => {
+  name = 'scenario-87';
+  const login = new Login(page);
+  const home = new Home(page);
+  const setting = new Setting(page);
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMySettings();
+  await saveScreenshot(2);
+  await home.goToMyGeneralSettings();
+  await saveScreenshot(3);
+  await setting.expandFacebookCard();
+  await saveScreenshot(4);
+  await setting.fillFacebookTitle(faker.lorem.sentence());
+  await saveScreenshot(5);
+  await setting.fillFacebookDescription(faker.lorem.sentence());
+  await saveScreenshot(6);
+  await setting.updateSetting();
+  await saveScreenshot(7);
+  const success = await setting.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 88: Update website social networks urls', async () => {
+  name = 'scenario-88';
+  const login = new Login(page);
+  const home = new Home(page);
+  const setting = new Setting(page);
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMySettings();
+  await saveScreenshot(2);
+  await home.goToMyGeneralSettings();
+  await saveScreenshot(3);
+  await setting.expandSocialAccounts();
+  await saveScreenshot(4);
+  await setting.fillFacebookUrl(faker.random.alpha(10));
+  await saveScreenshot(5);
+  await setting.fillTwitterUrl(faker.random.alpha(10));
+  await saveScreenshot(6);
+  await setting.updateSetting();
+  await saveScreenshot(7);
+  const success = await setting.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 89: Update the owner full name, slug and location', async () => {
+  name = 'scenario-89';
+  const login = new Login(page);
+  const home = new Home(page);
+  const profile = new Profile(page);
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMyProfile();
+  await saveScreenshot(2);
+  await profile.fillName(faker.name.firstName());
+  await saveScreenshot(3);
+  await profile.fillSlug(faker.random.alpha(20));
+  await saveScreenshot(4);
+  await profile.fillLocation(faker.address.country());
+  await saveScreenshot(5);
+  await profile.updateProfile();
+  await saveScreenshot(6);
+  const success = await profile.getSavedSuccess();
+  expect(success).to.exist;
+});
+
+it('Scenario 90: Update the owner website, Facebook Profile, Twitter profile and Bio', async () => {
+  name = 'scenario-90';
+  const login = new Login(page);
+  const home = new Home(page);
+  const profile = new Profile(page);
+
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await login.clickLogin();
+  await home.goToMyProfile();
+  await saveScreenshot(2);
+  await profile.fillWebsite(faker.internet.url());
+  await saveScreenshot(3);
+  await profile.fillFacebookUrl(faker.random.alpha(10));
+  await saveScreenshot(4);
+  await profile.fillTwitterUrl(faker.random.alpha(10));
+  await saveScreenshot(4);
+  await profile.fillBio(faker.lorem.sentence());
+  await saveScreenshot(5);
+  await profile.updateProfile();
+  await saveScreenshot(6);
+  const success = await profile.getSavedSuccess();
+  expect(success).to.exist;
 });
 
 it('Scenario 91: Update name with an empty name', async () => {
@@ -877,4 +1710,8 @@ it('Scenario 120: Create a page with title, body and feature image and publish i
 async function saveScreenshot(step) {
   await new Promise((r) => setTimeout(r, 1000));
   await page.screenshot({ path: `${screenshotPath}/${name}/step-${step}.png` });
+}
+
+function randomIndex(size) {
+  return Math.floor(Math.random() * dataPoolSize)
 }

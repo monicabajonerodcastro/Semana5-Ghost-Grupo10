@@ -8,6 +8,11 @@ class Profile {
     await this.page.fill('input[id=user-name]', name);
   }
 
+  async fillSlug(slug) {
+    await new Promise((r) => setTimeout(r, 1000));
+    await this.page.fill('input[id=user-slug]', slug);
+  }
+
   async fillEmail(email) {
     await new Promise((r) => setTimeout(r, 1000));
     await this.page.fill('input[id=user-email]', email);
@@ -36,11 +41,6 @@ class Profile {
   async fillBio(bio) {
     await new Promise((r) => setTimeout(r, 1000));
     await this.page.fill('textarea[id=user-bio]', bio);
-  }
-
-  async fillLocation(location) {
-    await new Promise((r) => setTimeout(r, 1000));
-    await this.page.fill('input[id=user-location]', location);
   }
 
   async fillOldPassword(password) {
@@ -72,6 +72,11 @@ class Profile {
   async updateProfile() {
     await new Promise((r) => setTimeout(r, 1000));
     await this.page.locator('text=Save').click();
+  }
+
+  async getSavedSuccess() {
+    await new Promise((r) => setTimeout(r, 1000));
+    return await this.page.locator('span*=Saved');
   }
 }
 

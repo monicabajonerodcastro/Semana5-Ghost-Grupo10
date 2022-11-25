@@ -1,7 +1,7 @@
 {
   "headless": false,
   "url": "http://localhost:2368/ghost/#/signin",
-  "username": "dc.tafur10@uniandes.edu.co",
-  "password": "MISW202215",
+  "username": "Ingrese aquí su usuario de Ghost",
+  "password": "Ingrese aquí su contraseña de Ghost",
   "screenshotPath": "./screenshots"
 }
