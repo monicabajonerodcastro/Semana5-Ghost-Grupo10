@@ -1,13 +1,14 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const expect = require('chai').expect;
-const { getPrioriDataFromArray, getDataTechnique, dataTechnique } = require('./data/converter');
+const { getDataFromArray, getDataTechnique, getFakerData } = require('./data/converter');
 
 async function getDataByTechnique(field){
     if(this.technique === undefined || this.technique === null)  this.technique = await getDataTechnique()
     if(this.technique === 'PRIORI'){
-        return getPrioriDataFromArray(field);
+        return getDataFromArray(field);
+    }else{
+        return getFakerData(field);
     }
-    return "Default Value";
 }
 
 Given('I navigate page {kraken-string}', async function (url) {
