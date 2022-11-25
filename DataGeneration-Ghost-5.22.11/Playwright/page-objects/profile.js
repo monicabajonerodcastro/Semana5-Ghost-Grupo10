@@ -3,6 +3,11 @@ class Profile {
     this.page = page;
   }
 
+  async fillName(name) {
+    await new Promise((r) => setTimeout(r, 1000));
+    await this.page.fill('input[id=user-name]', name);
+  }
+
   async fillEmail(email) {
     await new Promise((r) => setTimeout(r, 1000));
     await this.page.fill('input[id=user-email]', email);
@@ -61,7 +66,7 @@ class Profile {
 
   async changePassword() {
     await new Promise((r) => setTimeout(r, 1000));
-    await this.page.locator('text=Change Password').click();
+    await this.page.locator('.gh-btn.gh-btn-icon.button-change-password.gh-btn-red.ember-view').click();
   }
 
   async updateProfile() {
