@@ -1,7 +1,8 @@
 const { After, Before, BeforeStep, BeforeAll } = require('@cucumber/cucumber');
 const { WebClient } = require('kraken-node');
-const { GHOST_VERSION } = require('../../../properties.json');
+const { GHOST_VERSION, A_PRIORI_SCENARIOS, PSEUDO_RANDOM_SCENARIOS, RANDOM_SCENARIOS } = require('../../../properties.json');
 const fs = require('fs');
+const { convertPrioriFileToArrayObject, setDataTechnique } = require('../step_definitions/data/converter');
 
 var stepCounter = 1;
 
@@ -12,6 +13,11 @@ Before(async function(scenario) {
   this.scenarioName = scenario.pickle.name.split(":")[0].toLowerCase();
   stepCounter = 1;
 
+  const scenarioNumber = parseInt(this.scenarioName.substr(this.scenarioName.length - 2));
+  if(A_PRIORI_SCENARIOS.includes(scenarioNumber)) this.dataGenerationTechnique = "PRIORI";
+  else if(PSEUDO_RANDOM_SCENARIOS.includes(scenarioNumber)) this.dataGenerationTechnique = "PSEUDO";
+  else if(RANDOM_SCENARIOS.includes(scenarioNumber)) this.dataGenerationTechnique = "RANDOM";
+  setDataTechnique(this.dataGenerationTechnique);
 })
 
 After(async function() {
@@ -28,5 +34,5 @@ BeforeAll(async function(){
   if(!fs.existsSync(screenshotsDir)){
     fs.mkdirSync(screenshotsDir, { recursive: true })
   }
-  
+  convertPrioriFileToArrayObject();
 })
