@@ -92,6 +92,46 @@ When('I set the tags {string}', async function(tags){
     return await dropdown.click()
 })
 
+When('I select the meta data section', async function(){
+    let elements = await this.driver.$$('.nav-list-item');
+    let element = await elements[0];
+    return await element.click();
+});
+
+When('I set the {string} meta title', async function(title){
+    let element = await this.driver.$('.post-setting-meta-title');
+    return element.setValue(await getDataByTechnique(title));
+})
+
+When('I click on the facebook card', async function(){
+    let element = await this.driver.$$('.nav-list-item')[2];
+    return await element.click();
+});
+
+When('I fill the facebook data with {string}', async function(data){
+    let elementTitle = await this.driver.$('input[name="post-setting-og-title"]');
+    await elementTitle.setValue(await getDataByTechnique(data));
+
+    let elementDescription = await this.driver.$('textarea[name="post-setting-og-description"]');
+    return await elementDescription.setValue(await getDataByTechnique(data));
+})
+
+When ('I click into the add button', async function(){
+    let element = await this.driver.$('.koenig-plus-menu-button');
+    return await element.click();
+})
+
+When('I click into the email content button', async function(){
+    let element = await this.driver.$$('.anim-fast')[6];
+    return await element.click();
+})
+
+When('I set the content {string} into the box', async function(content){
+    let element = await this.driver.$('.koenig-text-replacement-html-input__editor > p');
+    return await element.setValue(await getDataByTechnique(content));
+})
+
+
 
 /**
  * "Then" steps
@@ -121,4 +161,41 @@ Then('I see the post error', async function(){
     expect(element.length > 0).to.equal(true);
     let alertText = await this.driver.$('.gh-box-error').getText();
     expect(alertText).to.equal("Validation error, cannot edit post.");
+})
+
+Then('I see the title in the card preview', async function(){
+    let referenceElement = await this.driver.$('.post-setting-meta-title').getValue();
+    let element = await this.driver.$('.gh-seo-preview-title').getText();
+    expect(referenceElement).to.equal(element);
+})
+
+Then('I see the short title in the card preview', async function(){
+    let referenceElement = await this.driver.$('.post-setting-meta-title').getValue();
+    let shortReferenceElement = await referenceElement.substring(0, 57) + "...";
+    let element = await this.driver.$('.gh-seo-preview-title').getText();
+    expect(shortReferenceElement).to.equal(element);
+})
+
+Then('I see the post meta error', async function(){
+    let element = await this.driver.$$('.gh-alerts');
+    expect(element.length > 0).to.equal(true);
+    let alertText = await this.driver.$('.gh-alert-content').getText();
+    expect(alertText).to.equal("Validation failed: Meta Title cannot be longer than 300 characters.");
+
+})
+
+Then('I see the preview of the facebook card', async function(){
+    let referenceElement = await this.driver.$('input[name="post-setting-og-title"]').getValue();
+    let element = await this.driver.$('.gh-social-og-preview-title').getText()
+    expect(referenceElement).to.equal(element);
+})
+
+Then('I see the preview of the long facebook card', async function(){
+    let referenceElement = await this.driver.$('input[name="post-setting-og-title"]').getValue();
+    let shortReferenceElement = await referenceElement.substring(0, 137) + "...";
+    let element = await this.driver.$('.gh-social-og-preview-title').getText()
+    expect(shortReferenceElement).to.equal(element);
+
+    let responseText = await this.driver.$$('.response')[2].getText();
+    expect(responseText).to.equal("Facebook Title cannot be longer than 300 characters.");
 })
