@@ -14,6 +14,12 @@ const {
 } = require('./data-pool');
 
 const { headless, url, username, password, screenshotPath } = config;
+const url_tag_normal='https://my.api.mockaroo.com/tag_normal.json?key=473bb5a0'
+const url_tag_long_wrong='https://my.api.mockaroo.com/tag_long_wrong.json?key=473bb5a0'
+const_tag_normal_tag='./Tag_normal.csv';
+const_tag_wrong_tag='./Tag_long_wrong.csv';
+const fetch = require("node-fetch");
+
 
 let name;
 let page;
@@ -25,6 +31,54 @@ let profileDataPool;
 let memberDataPool;
 let settingDataPool;
 const dataPoolSize = 1000;
+const dataPoolSizeMocka = 9;
+
+var newTag;
+var textContentAux;
+
+
+class Tag {
+  constructor(name, slug, description, facebook_title, facebook_description, color) {
+    this.name = name;
+    this.slug = slug;
+    this.description = description;
+    this.facebook_title = facebook_title;
+    this.facebook_description = facebook_description;
+    this.color = color;
+  }
+}
+
+async function fetchTest(url) {
+    let response = await fetch(url);
+    let responseText = await response.text();
+    textContentAux=responseText
+}
+
+function leerCsv(texto) {
+  if (typeof texto !== 'string') {
+      throw TypeError('El argumento debe ser una cadena de caracteres.');
+  }
+
+  return texto.slice(0)
+  .split('\n')
+  .map(l => l.split(','));
+}
+
+function actualizarTag(pathFile) {
+
+  fs = require("fs"),
+    NOMBRE_ARCHIVO = pathFile
+    
+  fileData = fs.readFileSync(NOMBRE_ARCHIVO, "utf8");
+
+  tagMat=leerCsv(fileData)[Math.floor(Math.random() * dataPoolSizeMocka)];
+  newTag = new Tag(tagMat[0],tagMat[1],tagMat[2],tagMat[3],tagMat[4],tagMat[5]);
+}
+
+function actualizarTagAPI(textcontent) {
+  tagMat=leerCsv(textcontent)[0];
+  newTag = new Tag(tagMat[0],tagMat[1],tagMat[2],tagMat[3],tagMat[4],tagMat[5]);
+}
 
 before(async () => {
   pageDataPool = createPageDataPool(dataPoolSize);
@@ -42,6 +96,697 @@ beforeEach(async () => {
 afterEach(async () => {
   browser.close();
 });
+
+it('Scenario31: As an admin user, I want to create a tag with just the name', async () => {
+  name = 'scenario-31';
+  actualizarTag(const_tag_normal_tag);
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', newTag.name);
+  await saveScreenshot(3);
+  await page.locator('text=Save').click();
+  await saveScreenshot(4);
+  expect(true);
+});
+
+it('Scenario32: As an admin user, I want to create a tag with just the name', async () => {
+  name = 'scenario-32';
+  await fetchTest(url_tag_normal);
+  actualizarTagAPI(textContentAux);
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', newTag.name);
+  await saveScreenshot(3);
+  await page.locator('text=Save').click();
+  await saveScreenshot(4);
+  expect(true); 
+});
+
+it('Scenario33: As an admin user, I want to create a tag with just the name', async () => {
+  name = 'scenario-33';
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', faker.lorem.word({length: {min: 1, max: 190}}));
+  await saveScreenshot(3);
+  await page.locator('text=Save').click();
+  await saveScreenshot(4);
+  expect(true);
+});
+
+it('Scenario34: As an admin user, I want to create a tag with just the name and a description', async () => {
+  name = 'scenario-34';
+  actualizarTag(const_tag_normal_tag);
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', newTag.name);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.type('textarea[id=tag-description]', newTag.description);
+  await saveScreenshot(3);
+  await page.locator('text=Save').click();
+  await saveScreenshot(4);
+  expect(true);
+});
+
+it('Scenario35: As an admin user, I want to create a tag with just the name and a description', async () => {
+  name = 'scenario-35';
+  await fetchTest(url_tag_normal);
+  actualizarTagAPI(textContentAux);
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', newTag.name);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.type('textarea[id=tag-description]', newTag.description);
+  await saveScreenshot(3);
+  await page.locator('text=Save').click();
+  await saveScreenshot(4);
+  expect(true);
+});
+
+it('Scenario36: As an admin user, I want to create a tag with just the name and a description', async () => {
+  name = 'scenario-36';
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', faker.lorem.word({length: {min: 1, max: 190}}));
+  await new Promise(r => setTimeout(r, 1000));
+  await page.type('textarea[id=tag-description]', faker.lorem.sentence());
+  await saveScreenshot(3);
+  await page.locator('text=Save').click();
+  await saveScreenshot(4);
+  expect(true);
+});
+
+it('Scenario37: As an admin user, I want to create a tag with just the name and a long description', async () => {
+  name = 'scenario-37';
+  actualizarTag(const_tag_wrong_tag);
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', newTag.name);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.type('textarea[id=tag-description]', newTag.description);
+  await saveScreenshot(3);
+  expect(true);
+});
+
+it('Scenario38: As an admin user, I want to create a tag with just the name and a long description', async () => {
+  name = 'scenario-38';
+  await fetchTest(url_tag_long_wrong);
+  actualizarTagAPI(textContentAux);
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', newTag.name);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.type('textarea[id=tag-description]', newTag.description);
+  await saveScreenshot(3);
+  expect(true);
+});
+
+it('Scenario39: As an admin user, I want to create a tag with just the name and a long description', async () => {
+  name = 'scenario-39';
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', faker.lorem.word({length: {min: 1, max: 190}}));
+  await new Promise(r => setTimeout(r, 1000));
+  await page.type('textarea[id=tag-description]', faker.lorem.sentence(250));
+  await saveScreenshot(3);
+  expect(true);
+});
+
+it('Scenario40: As an admin user I want to create a tag with the name, a specific slug and a description', async () => {
+  name = 'scenario-40';
+  actualizarTag(const_tag_normal_tag);
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', newTag.name);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.fill('id=tag-slug', '');
+  await new Promise(r => setTimeout(r, 1000));
+  await page.type('input[id=tag-slug]', newTag.slug);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.type('textarea[id=tag-description]', newTag.description);
+  await saveScreenshot(3);
+  await page.locator('text=Save').click();
+  await saveScreenshot(4);
+  expect(true);
+});
+
+it('Scenario41: As an admin user I want to create a tag with the name, a specific slug and a description', async () => {
+  name = 'scenario-41';
+  await fetchTest(url_tag_normal);
+  actualizarTagAPI(textContentAux);
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', newTag.name);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.fill('id=tag-slug', '');
+  await new Promise(r => setTimeout(r, 1000));
+  await page.type('input[id=tag-slug]', newTag.slug);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.type('textarea[id=tag-description]', newTag.description);
+  await saveScreenshot(3);
+  await page.locator('text=Save').click();
+  await saveScreenshot(4);
+  expect(true);
+});
+
+it('Scenario42: As an admin user I want to create a tag with the name, a specific slug and a description', async () => {
+  name = 'scenario-42';
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', faker.lorem.word({length: {min: 1, max: 190}}));
+  await new Promise(r => setTimeout(r, 1000));
+  await page.fill('id=tag-slug', '');
+  await new Promise(r => setTimeout(r, 1000));
+  await page.type('input[id=tag-slug]', faker.lorem.word({length: {min: 1, max: 190}}));
+  await new Promise(r => setTimeout(r, 1000));
+  await page.type('textarea[id=tag-description]', faker.lorem.sentence());
+  await saveScreenshot(3);
+  await page.locator('text=Save').click();
+  await saveScreenshot(4);
+  expect(true);
+});
+
+it('Scenario43: As an admin user, I want to create a tag with just the name and a specific long slug', async () => {
+  name = 'scenario-43';
+  actualizarTag(const_tag_wrong_tag);
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', newTag.name);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.type('input[id=tag-slug]', newTag.slug);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=Save').click();
+  await saveScreenshot(3);
+  expect(true);
+});
+
+it('Scenario44: As an admin user, I want to create a tag with just the name and a specific long slug', async () => {
+  name = 'scenario-44';
+  await fetchTest(url_tag_long_wrong);
+  actualizarTagAPI(textContentAux);
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', newTag.name);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.type('input[id=tag-slug]', newTag.slug);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=Save').click();
+  await saveScreenshot(3);
+  expect(true);
+});
+
+it('Scenario45: As an admin user, I want to create a tag with just the name and a specific long slug', async () => {
+  name = 'scenario-45';
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', faker.lorem.word({length: {min: 1, max: 190}}));
+  await new Promise(r => setTimeout(r, 1000));
+  await page.type('input[id=tag-slug]', faker.lorem.sentence(100));
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=Save').click();
+  await saveScreenshot(3);
+  expect(true);
+});
+
+it('Scenario46: As an admin user, I want to create a tag with just the name and a specific color (HEX value)', async () => {
+  name = 'scenario-46';
+  actualizarTag(const_tag_normal_tag);
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', newTag.name);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('[placeholder="15171A"]').fill(newTag.color.slice(1));
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=Save').click();
+  await saveScreenshot(3);
+  expect(true);
+});
+
+it('Scenario47: As an admin user, I want to create a tag with just the name and a specific color (HEX value)', async () => {
+  name = 'scenario-47';
+  await fetchTest(url_tag_normal);
+  actualizarTagAPI(textContentAux);
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', newTag.name);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('[placeholder="15171A"]').fill(newTag.color.slice(1));
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=Save').click();
+  await saveScreenshot(3);
+  expect(true);
+});
+
+it('Scenario48: As an admin user, I want to create a tag with just the name and a specific color (HEX value)', async () => {
+  name = 'scenario-48';
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', faker.lorem.word({length: {min: 1, max: 190}}));
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('[placeholder="15171A"]').fill(faker.color.rgb({ format: 'hex', casing: 'lower' }).slice(1));
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=Save').click();
+  await saveScreenshot(3);
+  expect(true);
+});
+
+it('Scenario49: As an admin user, I want to create a tag with just the name and a specific color (Non HEX value)', async () => {
+  name = 'scenario-49';
+  actualizarTag(const_tag_wrong_tag);
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', newTag.name);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('[placeholder="15171A"]').fill(newTag.color.slice(1));
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=Save').click();
+  await saveScreenshot(3);
+  expect(true);
+});
+
+it('Scenario50: As an admin user, I want to create a tag with just the name and a specific color (Non HEX value)', async () => {
+  name = 'scenario-50';
+  await fetchTest(url_tag_long_wrong);
+  actualizarTagAPI(textContentAux);
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', newTag.name);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('[placeholder="15171A"]').fill(newTag.color.slice(1));
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=Save').click();
+  await saveScreenshot(3);
+  expect(true);
+});
+
+it('Scenario51: As an admin user, I want to create a tag with just the name and a specific color (Non HEX value)', async () => {
+  name = 'scenario-51';
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', faker.lorem.word({length: {min: 1, max: 190}}));
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('[placeholder="15171A"]').fill(faker.lorem.word({length: {min: 1, max: 5}}));
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=Save').click();
+  await saveScreenshot(3);
+  expect(true);
+});
+
+it('Scenario52: As an admin user, I want to create a tag with just the name and a facebook card', async () => {
+  name = 'scenario-52';
+  actualizarTag(const_tag_normal_tag);
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', newTag.name);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator(':nth-match(:text("Expand"), 3)').click();
+  await saveScreenshot(3);
+  await page.type('input[id=og-title]', newTag.facebook_title);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.type('textarea[id=og-description]', newTag.facebook_description);
+  await saveScreenshot(4);
+  await page.locator('text=Save').click();
+  await saveScreenshot(5);
+  expect(true);
+});
+
+it('Scenario53: As an admin user, I want to create a tag with just the name and a facebook card', async () => {
+  name = 'scenario-53';
+  await fetchTest(url_tag_normal);
+  actualizarTagAPI(textContentAux);
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', newTag.name);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator(':nth-match(:text("Expand"), 3)').click();
+  await saveScreenshot(3);
+  await page.type('input[id=og-title]', newTag.facebook_title);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.type('textarea[id=og-description]', newTag.facebook_description);
+  await saveScreenshot(4);
+  await page.locator('text=Save').click();
+  await saveScreenshot(5);
+  expect(true);
+});
+
+it('Scenario54: As an admin user, I want to create a tag with just the name and a facebook card', async () => {
+  name = 'scenario-54';
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]',  faker.lorem.word({length: {min: 1, max: 190}}));
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator(':nth-match(:text("Expand"), 3)').click();
+  await saveScreenshot(3);
+  await page.type('input[id=og-title]',  faker.lorem.word({length: {min: 1, max: 100}}));
+  await new Promise(r => setTimeout(r, 1000));
+  await page.type('textarea[id=og-description]', faker.lorem.word({length: {min: 1, max: 65}}));
+  await saveScreenshot(4);
+  await page.locator('text=Save').click();
+  await saveScreenshot(5);
+  expect(true);
+});
+
+it('Scenario55: As an admin user, I want to create a tag with just the name and a facebook card (facebook name long)', async () => {
+  name = 'scenario-55';
+  actualizarTag(const_tag_wrong_tag);
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', newTag.name);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator(':nth-match(:text("Expand"), 3)').click();
+  await saveScreenshot(3);
+  await page.type('input[id=og-title]', newTag.facebook_title);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=Save').click();
+  await saveScreenshot(4);
+  expect(true);
+});
+
+it('Scenario56: As an admin user, I want to create a tag with just the name and a facebook card (facebook name long)', async () => {
+  name = 'scenario-56';
+  await fetchTest(url_tag_long_wrong);
+  actualizarTagAPI(textContentAux);
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', newTag.name);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator(':nth-match(:text("Expand"), 3)').click();
+  await saveScreenshot(3);
+  await page.type('input[id=og-title]', newTag.facebook_title);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=Save').click();
+  await saveScreenshot(4);
+  expect(true);
+});
+
+it('Scenario57: As an admin user, I want to create a tag with just the name and a facebook card (facebook name long)', async () => {
+  name = 'scenario-57';
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]',  faker.lorem.word({length: {min: 1, max: 190}}));
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator(':nth-match(:text("Expand"), 3)').click();
+  await saveScreenshot(3);
+  await page.type('input[id=og-title]',  faker.lorem.sentence(50));
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=Save').click();
+  await saveScreenshot(4);
+  expect(true);
+});
+
+it('Scenario58: As an admin user, I want to create a tag with just the name and a facebook card with very long facebok desc', async () => {
+  name = 'scenario-58';
+  actualizarTag(const_tag_wrong_tag);
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', newTag.name);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator(':nth-match(:text("Expand"), 3)').click();
+  await saveScreenshot(3);
+  await page.type('input[id=og-title]', newTag.facebook_title);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.type('textarea[id=og-description]', newTag.facebook_description);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=Save').click();
+  await saveScreenshot(4);
+  expect(true);
+});
+
+it('Scenario59: As an admin user, I want to create a tag with just the name and a facebook card with very long facebok desc', async () => {
+  name = 'scenario-59';
+  await fetchTest(url_tag_long_wrong);
+  actualizarTagAPI(textContentAux);
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]', newTag.name);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator(':nth-match(:text("Expand"), 3)').click();
+  await saveScreenshot(3);
+  await page.type('input[id=og-title]', newTag.facebook_title);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.type('textarea[id=og-description]', newTag.facebook_description);
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=Save').click();
+  await saveScreenshot(4);
+  expect(true);
+});
+
+it('Scenario60: As an admin user, I want to create a tag with just the name and a facebook card with very long facebok desc', async () => {
+  name = 'scenario-60';
+  const login = new Login(page);
+  await page.goto(url);
+  await login.fillForm(username, password);
+  await saveScreenshot(1);
+  await page.click('button.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.ember-view');
+  await new Promise(r => setTimeout(r, 3000));
+  await page.locator('text=Tags').click();
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=New tag').click();
+  await saveScreenshot(2);
+  await page.type('input[id=tag-name]',  faker.lorem.word({length: {min: 1, max: 190}}));
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator(':nth-match(:text("Expand"), 3)').click();
+  await saveScreenshot(3);
+  await page.type('input[id=og-title]',  faker.lorem.word({length: {min: 102, max: 200}}));
+  await new Promise(r => setTimeout(r, 1000));
+  await page.type('textarea[id=og-description]', faker.lorem.sentence(300));
+  await new Promise(r => setTimeout(r, 1000));
+  await page.locator('text=Save').click();
+  await saveScreenshot(4);
+  expect(true);
+});
+
 
 it('Scenario 61: Create a new member with name and email', async () => {
   name = 'scenario-61';

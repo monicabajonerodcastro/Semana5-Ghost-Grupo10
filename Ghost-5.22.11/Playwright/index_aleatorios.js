@@ -94,7 +94,7 @@ const fillLogin = async (page, adminUser, password) => {
     //Interactuar con la aplicación web
 
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario31: As an admin user, I want to create a tag with just the name')
+    console.log('Scenario31: As an admin user, I want to create a tag with just the name')
     console.log('--------------------------------------------------------------------------------------------------------------')
     actualizarTag(const_tag_normal_tag);
     await fillLogin(page, adminUser, password);
@@ -112,7 +112,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}31_step4.png`})
-    console.log('Create Tag - Scenario 31 - Completed')
+    console.log('Scenario 31 - Completed')
 
 
     //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
@@ -125,7 +125,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')    
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario32: As an admin user, I want to create a tag with just the name')
+    console.log('Scenario32: As an admin user, I want to create a tag with just the name')
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fetchTest(url_tag_normal);
     actualizarTagAPI(textContentAux);
@@ -144,7 +144,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}32_step4.png`})
-    console.log('Create Tag - Scenario 32 - Completed') 
+    console.log('Scenario 32 - Completed') 
 
     //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
     browser = await playwright[browserType].launch();
@@ -156,7 +156,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')    
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario33: As an admin user, I want to create a tag with just the name')
+    console.log('Scenario33: As an admin user, I want to create a tag with just the name')
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fillLogin(page, adminUser, password);
     await page.screenshot({path: `${screenshotPath}33_step1.png`})
@@ -173,7 +173,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}33_step4.png`})
-    console.log('Create Tag - Scenario 33 - Completed')
+    console.log('Scenario 33 - Completed')
 
 
     //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
@@ -186,7 +186,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')      
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario34: As an admin user, I want to create a tag with just the name and a description')
+    console.log('Scenario34: As an admin user, I want to create a tag with just the name and a description')
     console.log('--------------------------------------------------------------------------------------------------------------')
     actualizarTag(const_tag_normal_tag);
     await fillLogin(page, adminUser, password);
@@ -206,7 +206,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}34_step4.png`})
-    console.log('Create Tag - Scenario 34 - Completed')
+    console.log('Scenario 34 - Completed')
 
     //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
     browser = await playwright[browserType].launch();
@@ -218,7 +218,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')      
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario35: As an admin user, I want to create a tag with just the name and a description')
+    console.log('Scenario35: As an admin user, I want to create a tag with just the name and a description')
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fetchTest(url_tag_normal);
     actualizarTagAPI(textContentAux);
@@ -239,7 +239,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}35_step4.png`})
-    console.log('Create Tag - Scenario 35 - Completed')
+    console.log('Scenario 35 - Completed')
 
 
     //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
@@ -252,7 +252,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')      
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario36: As an admin user, I want to create a tag with just the name and a description')
+    console.log('Scenario36: As an admin user, I want to create a tag with just the name and a description')
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fillLogin(page, adminUser, password);
     await page.screenshot({path: `${screenshotPath}36_step1.png`})
@@ -271,7 +271,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}36_step4.png`})
-    console.log('Create Tag - Scenario 36 - Completed')
+    console.log('Scenario 36 - Completed')
 
 
 
@@ -285,7 +285,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')      
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario37: As an admin user, I want to create a tag with just the name and a long description')
+    console.log('Scenario37: As an admin user, I want to create a tag with just the name and a long description')
     console.log('--------------------------------------------------------------------------------------------------------------')
     actualizarTag(const_tag_wrong_tag);
     await fillLogin(page, adminUser, password);
@@ -302,7 +302,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.type('textarea[id=tag-description]', newTag.description);
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}37_step3.png`})
-    console.log('Create Tag - Scenario 37 - Completed')
+    console.log('Scenario 37 - Completed')
 
     //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
     browser = await playwright[browserType].launch();
@@ -314,7 +314,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')      
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario38: As an admin user, I want to create a tag with just the name and a long description')
+    console.log('Scenario38: As an admin user, I want to create a tag with just the name and a long description')
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fetchTest(url_tag_long_wrong);
     actualizarTagAPI(textContentAux);
@@ -332,7 +332,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.type('textarea[id=tag-description]', newTag.description);
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}38_step3.png`})
-    console.log('Create Tag - Scenario 38 - Completed')
+    console.log('Scenario 38 - Completed')
 
 
     //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
@@ -345,7 +345,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')      
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario39: As an admin user, I want to create a tag with just the name and a long description')
+    console.log('Scenario39: As an admin user, I want to create a tag with just the name and a long description')
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fillLogin(page, adminUser, password);
     await page.screenshot({path: `${screenshotPath}39_step1.png`})
@@ -361,7 +361,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.type('textarea[id=tag-description]', faker.lorem.sentence(250));
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}39_step3.png`})
-    console.log('Create Tag - Scenario 39 - Completed')
+    console.log('Scenario 39 - Completed')
 
     //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
     browser = await playwright[browserType].launch();
@@ -373,7 +373,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')    
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario40: As an admin user I want to create a tag with the name, a specific slug and a description')
+    console.log('Scenario40: As an admin user I want to create a tag with the name, a specific slug and a description')
     console.log('--------------------------------------------------------------------------------------------------------------')
     actualizarTag(const_tag_normal_tag);
     await fillLogin(page, adminUser, password);
@@ -397,7 +397,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}40_step4.png`})
-    console.log('Create Tag - Scenario 40 - Completed')
+    console.log('Scenario 40 - Completed')
 
     browser = await playwright[browserType].launch();
     context = await browser.newContext();
@@ -410,7 +410,7 @@ const fillLogin = async (page, adminUser, password) => {
     
     
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario41: As an admin user I want to create a tag with the name, a specific slug and a description')
+    console.log('Scenario41: As an admin user I want to create a tag with the name, a specific slug and a description')
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fetchTest(url_tag_normal);
     actualizarTagAPI(textContentAux);
@@ -435,7 +435,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}41_step4.png`})
-    console.log('Create Tag - Scenario 41 - Completed') 
+    console.log('Scenario 41 - Completed') 
 
     browser = await playwright[browserType].launch();
     context = await browser.newContext();
@@ -447,7 +447,7 @@ const fillLogin = async (page, adminUser, password) => {
     console.log('Project loaded')
 
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario42: As an admin user I want to create a tag with the name, a specific slug and a description')
+    console.log('Scenario42: As an admin user I want to create a tag with the name, a specific slug and a description')
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fillLogin(page, adminUser, password);
     await page.screenshot({path: `${screenshotPath}42_step1.png`})
@@ -470,7 +470,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}42_step4.png`})
-    console.log('Create Tag - Scenario 42 - Completed')
+    console.log('Scenario 42 - Completed')
 
   
     //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
@@ -483,7 +483,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')      
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario43: As an admin user, I want to create a tag with just the name and a specific long slug')
+    console.log('Scenario43: As an admin user, I want to create a tag with just the name and a specific long slug')
     console.log('--------------------------------------------------------------------------------------------------------------')
     actualizarTag(const_tag_wrong_tag);
     await fillLogin(page, adminUser, password);
@@ -502,7 +502,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}43_step3.png`})
-    console.log('Create Tag - Scenario 43 - Completed')
+    console.log('Scenario 43 - Completed')
 
     //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
     browser = await playwright[browserType].launch();
@@ -514,7 +514,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')      
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario44: As an admin user, I want to create a tag with just the name and a specific long slug')
+    console.log('Scenario44: As an admin user, I want to create a tag with just the name and a specific long slug')
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fetchTest(url_tag_long_wrong);
     actualizarTagAPI(textContentAux);
@@ -534,7 +534,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}44_step3.png`})
-    console.log('Create Tag - Scenario 44 - Completed')
+    console.log('Scenario 44 - Completed')
 
 
     //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
@@ -547,7 +547,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')      
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario45: As an admin user, I want to create a tag with just the name and a specific long slug')
+    console.log('Scenario45: As an admin user, I want to create a tag with just the name and a specific long slug')
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fillLogin(page, adminUser, password);
     await page.screenshot({path: `${screenshotPath}45_step1.png`})
@@ -565,7 +565,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}45_step3.png`})
-    console.log('Create Tag - Scenario 45 - Completed')
+    console.log('Scenario 45 - Completed')
 
 
     browser = await playwright[browserType].launch();
@@ -575,7 +575,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')   
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario46: As an admin user, I want to create a tag with just the name and a specific color (HEX value)')
+    console.log('Scenario46: As an admin user, I want to create a tag with just the name and a specific color (HEX value)')
     console.log('--------------------------------------------------------------------------------------------------------------')
     actualizarTag(const_tag_normal_tag);
     await fillLogin(page, adminUser, password);
@@ -594,7 +594,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}46_step3.png`})
-    console.log('Create Tag - Scenario 46 - Completed')
+    console.log('Scenario 46 - Completed')
 
 
     //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
@@ -607,7 +607,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')    
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario47: As an admin user, I want to create a tag with just the name and a specific color (HEX value)')
+    console.log('Scenario47: As an admin user, I want to create a tag with just the name and a specific color (HEX value)')
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fetchTest(url_tag_normal);
     actualizarTagAPI(textContentAux);
@@ -627,7 +627,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}47_step3.png`})
-    console.log('Create Tag - Scenario 47 - Completed')  
+    console.log('Scenario 47 - Completed')  
 
     //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
     browser = await playwright[browserType].launch();
@@ -639,7 +639,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')    
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario48: As an admin user, I want to create a tag with just the name and a specific color (HEX value)')
+    console.log('Scenario48: As an admin user, I want to create a tag with just the name and a specific color (HEX value)')
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fillLogin(page, adminUser, password);
     await page.screenshot({path: `${screenshotPath}48_step1.png`})
@@ -657,7 +657,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}48_step3.png`})
-    console.log('Create Tag - Scenario 48 - Completed')
+    console.log('Scenario 48 - Completed')
 
     browser = await playwright[browserType].launch();
     context = await browser.newContext();
@@ -666,7 +666,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')   
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario49: As an admin user, I want to create a tag with just the name and a specific color (Non HEX value)')
+    console.log('Scenario49: As an admin user, I want to create a tag with just the name and a specific color (Non HEX value)')
     console.log('--------------------------------------------------------------------------------------------------------------')
     actualizarTag(const_tag_wrong_tag);
     await fillLogin(page, adminUser, password);
@@ -685,7 +685,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}49_step3.png`})
-    console.log('Create Tag - Scenario 49 - Completed')
+    console.log('Scenario 49 - Completed')
 
 
     //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
@@ -698,7 +698,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')    
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario50: As an admin user, I want to create a tag with just the name and a specific color (Non HEX value)')
+    console.log('Scenario50: As an admin user, I want to create a tag with just the name and a specific color (Non HEX value)')
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fetchTest(url_tag_long_wrong);
     actualizarTagAPI(textContentAux);
@@ -718,7 +718,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}50_step3.png`})
-    console.log('Create Tag - Scenario 50 - Completed')  
+    console.log('Scenario 50 - Completed')  
 
     //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
     browser = await playwright[browserType].launch();
@@ -730,7 +730,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')    
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario51: As an admin user, I want to create a tag with just the name and a specific color (Non HEX value)')
+    console.log('Scenario51: As an admin user, I want to create a tag with just the name and a specific color (Non HEX value)')
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fillLogin(page, adminUser, password);
     await page.screenshot({path: `${screenshotPath}51_step1.png`})
@@ -748,7 +748,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}51_step3.png`})
-    console.log('Create Tag - Scenario 51 - Completed')
+    console.log('Scenario 51 - Completed')
 
     browser = await playwright[browserType].launch();
     context = await browser.newContext();
@@ -757,7 +757,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')      
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario52: As an admin user, I want to create a tag with just the name and a facebook card')
+    console.log('Scenario52: As an admin user, I want to create a tag with just the name and a facebook card')
     console.log('--------------------------------------------------------------------------------------------------------------')
     actualizarTag(const_tag_normal_tag);
     await fillLogin(page, adminUser, password);
@@ -782,7 +782,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}52_step5.png`})
-    console.log('Create Tag - Scenario 52 - Completed')
+    console.log('Scenario 52 - Completed')
 
 
     browser = await playwright[browserType].launch();
@@ -794,7 +794,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario53: As an admin user, I want to create a tag with just the name and a facebook card')
+    console.log('Scenario53: As an admin user, I want to create a tag with just the name and a facebook card')
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fetchTest(url_tag_normal);
     actualizarTagAPI(textContentAux);
@@ -820,7 +820,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}53_step5.png`})
-    console.log('Create Tag - Scenario 53 - Completed')
+    console.log('Scenario 53 - Completed')
 
 
 
@@ -833,7 +833,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario54: As an admin user, I want to create a tag with just the name and a facebook card')
+    console.log('Scenario54: As an admin user, I want to create a tag with just the name and a facebook card')
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fillLogin(page, adminUser, password);
     await page.screenshot({path: `${screenshotPath}54_step1.png`})
@@ -857,7 +857,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}54_step5.png`})
-    console.log('Create Tag - Scenario 54 - Completed')
+    console.log('Scenario 54 - Completed')
 
 
     browser = await playwright[browserType].launch();
@@ -867,7 +867,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')      
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario55: As an admin user, I want to create a tag with just the name and a facebook card (facebook name long)')
+    console.log('Scenario55: As an admin user, I want to create a tag with just the name and a facebook card (facebook name long)')
     console.log('--------------------------------------------------------------------------------------------------------------')
     actualizarTag(const_tag_wrong_tag);
     await fillLogin(page, adminUser, password);
@@ -887,7 +887,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.type('input[id=og-title]', newTag.facebook_title);
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}55_step4.png`})
-    console.log('Create Tag - Scenario 55 - Completed')
+    console.log('Scenario 55 - Completed')
 
 
     browser = await playwright[browserType].launch();
@@ -899,7 +899,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario56: As an admin user, I want to create a tag with just the name and a facebook card (facebook name long)')
+    console.log('Scenario56: As an admin user, I want to create a tag with just the name and a facebook card (facebook name long)')
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fetchTest(url_tag_long_wrong);
     actualizarTagAPI(textContentAux);
@@ -920,7 +920,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.type('input[id=og-title]', newTag.facebook_title);
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}56_step4.png`})
-    console.log('Create Tag - Scenario 56 - Completed')
+    console.log('Scenario 56 - Completed')
 
 
 
@@ -933,7 +933,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario57: As an admin user, I want to create a tag with just the name and a facebook card (facebook name long)')
+    console.log('Scenario57: As an admin user, I want to create a tag with just the name and a facebook card (facebook name long)')
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fillLogin(page, adminUser, password);
     await page.screenshot({path: `${screenshotPath}57_step1.png`})
@@ -952,7 +952,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.type('input[id=og-title]',  faker.lorem.sentence(50));
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}57_step4.png`})
-    console.log('Create Tag - Scenario 57 - Completed')
+    console.log('Scenario 57 - Completed')
 
 
     browser = await playwright[browserType].launch();
@@ -962,7 +962,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')      
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario58: As an admin user, I want to create a tag with just the name and a facebook card with very long facebok desc')
+    console.log('Scenario58: As an admin user, I want to create a tag with just the name and a facebook card with very long facebok desc')
     console.log('--------------------------------------------------------------------------------------------------------------')
     actualizarTag(const_tag_wrong_tag);
     await fillLogin(page, adminUser, password);
@@ -986,7 +986,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}58_step4.png`})
-    console.log('Create Tag - Scenario 58 - Completed')
+    console.log('Scenario 58 - Completed')
 
 
     browser = await playwright[browserType].launch();
@@ -998,7 +998,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario59: As an admin user, I want to create a tag with just the name and a facebook card with very long facebok desc')
+    console.log('Scenario59: As an admin user, I want to create a tag with just the name and a facebook card with very long facebok desc')
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fetchTest(url_tag_long_wrong);
     actualizarTagAPI(textContentAux);
@@ -1023,7 +1023,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}59_step4.png`})
-    console.log('Create Tag - Scenario 59 - Completed')
+    console.log('Scenario 59 - Completed')
 
     browser = await playwright[browserType].launch();
     context = await browser.newContext();
@@ -1034,7 +1034,7 @@ const fillLogin = async (page, adminUser, password) => {
     await new Promise(r => setTimeout(r, 3000));
     console.log('Project loaded')
     console.log('--------------------------------------------------------------------------------------------------------------')
-    console.log('Create Tag - Scenario60: As an admin user, I want to create a tag with just the name and a facebook card with very long facebok desc')
+    console.log('Scenario60: As an admin user, I want to create a tag with just the name and a facebook card with very long facebok desc')
     console.log('--------------------------------------------------------------------------------------------------------------')
     await fillLogin(page, adminUser, password);
     await page.screenshot({path: `${screenshotPath}60_step1.png`})
@@ -1057,7 +1057,7 @@ const fillLogin = async (page, adminUser, password) => {
     await page.locator('text=Save').click();
     await new Promise(r => setTimeout(r, 1000));
     await page.screenshot({path: `${screenshotPath}60_step4.png`})
-    console.log('Create Tag - Scenario 60 - Completed')
+    console.log('Scenario 60 - Completed')
 
     console.log('Todas las pruebas finalizaron correctamente')   
     //Finalizar la prueba
