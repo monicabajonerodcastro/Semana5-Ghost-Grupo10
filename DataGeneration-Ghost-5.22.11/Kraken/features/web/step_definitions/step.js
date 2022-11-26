@@ -142,13 +142,11 @@ Then('I see the post confirmation', async function(){
     expect(element.length > 0).to.equal(true);
 })
 
-//todo PUBLICAR ISSUE
 Then('I do not expect to see the publish button', async function(){
     let element = await this.driver.$$('.gh-publish-trigger');
     expect(element.length <= 0).to.equal(true);
 })
 
-//todo PUBLICAR ISSUE
 Then('I see the error with the dates', async function(){
     let element = await this.driver.$$('.gh-alert-content');
     expect(element.length > 0).to.equal(true);
