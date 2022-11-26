@@ -49,7 +49,7 @@ const getFakerData = (field) => {
         case 'postWordsTags':
             return faker.lorem.words(2);
         case 'postSentenceTags':
-            return faker.lorem.sentences(5);
+            return faker.lorem.sentences(15);
         case 'postWrongTags':
             return faker.internet.domainWord();;
 } 
