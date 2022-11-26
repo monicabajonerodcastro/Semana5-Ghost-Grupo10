@@ -65,9 +65,9 @@ En la carpeta de cada herramienta, se especifican los requisitos e instrucciones
 | 55 | Create Tag | As an admin user, I want to create a tag with just the name and a facebook card (facebook name long) | Playwright | A-priori | Mockaroo | NG |
 | 56 | Create Tag | As an admin user, I want to create a tag with just the name and a facebook card (facebook name long) | Playwright | Pseudo-random | Mockaroo | NG |
 | 57 | Create Tag | As an admin user, I want to create a tag with just the name and a facebook card (facebook name long) | Playwright | Random | Faker | NG |
-| 58 | Create Tag | As an admin user, I want to create a tag with just the name and a facebook card with very long facebok desc (+2000 char) | Playwright | A-priori | Mockaroo | NG |
-| 59 | Create Tag | As an admin user, I want to create a tag with just the name and a facebook card with very long facebok desc (+2000 char) | Playwright | Pseudo-random | Mockaroo | NG |
-| 60 | Create Tag | As an admin user, I want to create a tag with just the name and a facebook card with very long facebok desc (+2000 char) | Playwright | Random | Faker | NG |
+| 58 | Create Tag | As an admin user, I want to create a tag with just the name and a facebook card with very long facebok desc | Playwright | A-priori | Mockaroo | NG |
+| 59 | Create Tag | As an admin user, I want to create a tag with just the name and a facebook card with very long facebok desc | Playwright | Pseudo-random | Mockaroo | NG |
+| 60 | Create Tag | As an admin user, I want to create a tag with just the name and a facebook card with very long facebok desc | Playwright | Random | Faker | NG |
 | 61 | Create Member | As an admin user, I want to create a new member with name and email | Playwright | A-priori | Mockaroo | IR |
 | 62 | Create Member | As an admin user, I want to create a new member with name, email and note | Playwright | A-priori | Mockaroo | IR |
 | 63 | Create Member | As an admin user, I want to create a new member with email, note and label | Playwright | A-priori | Mockaroo | IR |
