@@ -12,6 +12,7 @@
   "dependencies": {
     "chai": "^4.3.7",
     "mocha": "^10.1.0",
+    "node-fetch": "^3.3.0",
     "playwright": "^1.27.1",
     "prompt-sync": "^4.2.0"
   },

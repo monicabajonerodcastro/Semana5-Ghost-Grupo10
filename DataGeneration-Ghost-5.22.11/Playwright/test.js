@@ -18,8 +18,8 @@ const url_tag_normal='https://my.api.mockaroo.com/tag_normal.json?key=473bb5a0'
 const url_tag_long_wrong='https://my.api.mockaroo.com/tag_long_wrong.json?key=473bb5a0'
 const_tag_normal_tag='./Tag_normal.csv';
 const_tag_wrong_tag='./Tag_long_wrong.csv';
-const fetch = require("node-fetch");
-
+const fetch = (...args) =>
+  import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 let name;
 let page;
@@ -1744,7 +1744,7 @@ it('Scenario 96: Update website with an URL that exceeds max length', async () =
   expect(error).to.contain('Website is not a valid url');
 });
 
-it('Scenario 97: Update website with a bio that exceeds max length', async () => {
+it('Scenario 97: Update bio with a bio that exceeds max length', async () => {
   name = 'scenario-97';
   const login = new Login(page);
   const home = new Home(page);
@@ -2354,7 +2354,7 @@ it('Scenario 118: Create a page with title, body and page URL and publish it', a
 
   const title = pageDataPool[Math.floor(Math.random() * dataPoolSize)].title;
   const body = pageDataPool[Math.floor(Math.random() * dataPoolSize)].body;
-  const url = pageDataPool[Math.floor(Math.random() * dataPoolSize)].url;
+  const newUrl = pageDataPool[Math.floor(Math.random() * dataPoolSize)].url;
 
   await page.goto(url);
   await login.fillForm(username, password);
@@ -2367,7 +2367,7 @@ it('Scenario 118: Create a page with title, body and page URL and publish it', a
   await pages.fillBody(body);
   await saveScreenshot(3);
   await pages.clickPageSettings();
-  await pages.fillUrl(url);
+  await pages.fillUrl(newUrl);
   await saveScreenshot(4);
   await pages.clickPageSettings();
   await pages.publish();
