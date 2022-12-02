@@ -1,4 +1,4 @@
-# Semana5- Pruebas automatizadas en Ghost - Grupo10
+# Semana7- Pruebas automatizadas en Ghost - Datos aleatorios Grupo10
 En la carpeta de cada herramienta, se especifican los requisitos e instrucciones de ejecución de las pruebas. En el menú derecho de la wiki se encuentra un documento llamado "Estrategias para generar datos" donde se explica cómo se generaron los datos para cada grupo de pruebas.
 
 ### Herramientas
