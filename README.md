@@ -54,4 +54,5 @@ En el siguiente enlace podrá encontrar las diferencias visuales encontradas en 
 
 ### Semana 7
 
+[Pruebas y escenarios](https://github.com/monicabajonerodcastro/Semana5-Ghost-Grupo10/tree/master/DataGeneration-Ghost-5.22.11)
 [Estrategias para generar datos](https://github.com/monicabajonerodcastro/Semana5-Ghost-Grupo10/files/10097382/ESTRATEGIAS.PARA.GENERAR.DATOS.1.docx)
