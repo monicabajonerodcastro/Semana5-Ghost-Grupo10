@@ -51,3 +51,7 @@ En el siguiente enlace podrá encontrar las diferencias visuales encontradas en 
 ### Video Semana 6
 
 [Video semana 6 - Youtube](https://youtu.be/cX8Mh5ji9KY)
+
+### Semana 7
+
+[Estrategias para generar datos]([https://youtu.be/cX8Mh5ji9KY](https://github.com/monicabajonerodcastro/Semana5-Ghost-Grupo10/files/10097382/ESTRATEGIAS.PARA.GENERAR.DATOS.1.docx))
